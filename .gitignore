@@ -1,6 +1,9 @@
+# Ignore
 *
+
+# Allow
 !*.tex
 !*.pdf
 !*.gitignore
-!/Figures
+!Figures/*
 
