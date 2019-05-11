@@ -5,5 +5,5 @@
 !*.tex
 !*.pdf
 !*.gitignore
-!Figures/*
+!Figures/
 
