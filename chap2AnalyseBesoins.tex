@@ -25,7 +25,29 @@ Au cours de cette \'etape, nous allons extraire les diff\'erentes fonctionnalit\
 \end{itemize}  
 \end{itemize}
 
-\subsection{Description des cas d'utilisation}
+\subsection{Les besoins non fonctionnels}
+Outre les fonctions cit\'ees ci-dessus, l'application doit assurer en certaine mesure les caract\'eristiques suivantes :
+\begin{itemize}
+\item L'efficacit\'e : L'efficacit\'e de l'application doit permettre l'accomplissement de la t\^ache avec le minimum de manipulation. Ceci doit \^etre garanti pour que l'application puisse s'int\'egrer facilement dans l'environnement ou elle va \^etre d\'eploy\'ee.
+
+\item La s\'ecurit\'e : Les diff\'erents comptes utilis\'es par les utilisateurs doivent \^etre s\'ecuris\'es et v\'erifi\'es pour \'eviter les faux comptes et les fausses informations.
+
+\item La fiabilit\'e : Touche \`a l'aspect qualit\'e des donn\'ees et persistance des informations dans l'application ainsi que la vitesse de chargement des interfaces.
+\item La performance : le temps de r\'eponse de la plateforme doit \^etre rapide.
+
+\item La maintenabilit\'e : La solution doit \^etre stable face aux changements, ainsi qu'un fort niveau de testabilit\'e assur\'e par les tests fonctionnels.
+
+\item La scalabilit\'e : la solution doit d'\^etre extensible en termes de la charge des requ\^etes trait\'ees.
+
+\item L'\'evolutivit\'e : possibilit\'e d'ajout des nouvelles fonctionnalit\'es au cours du temps selon le besoin des fournisseurs.
+
+\item Le d\'eploiement intelligent: l'introduction des nouveaux changements ne doit pas impacter les modules existants, d'o\`u le besoin d'une d\'emarche de d\'eploiement intelligente de chaque module.
+
+\item La portabilit\'e: facilit\'e de passage d'un environnement de d\'eveloppement et tests vers un environnement de pr\'e-production ou un environnement de production.
+\end{itemize} 
+
+
+\subsection{Diagramme des cas d'utilisation}
 Cette figure repr\'esente le diagramme de cas d'utilisation globale de l'acteur prospecteur :
 \begin{figure}[H]
 	\center{\includegraphics[width=\textwidth]{Figures/prospectorDiagram.png}}
@@ -38,32 +60,44 @@ Cette figure repr\'esente le diagramme de cas d'utilisation globale de l'acteur 
 	\caption{\label{fig:my-label} Diagramme de cas d'utilisation globale pour l'exploitant}
 \end{figure}
 
-\subsection{Les besoins non fonctionnels}
-Outre les fonctions cit\'ees ci-dessus, l'application doit assurer en certaine mesure les caract\'eristiques suivantes :
-\begin{itemize}
-\item L'efficacit\'e : L'efficacit\'e de l'application doit permettre l'accomplissement de la t\^ache avec le minimum de manipulation. Ceci doit \^etre garanti pour que l'application puisse s'int\'egrer facilement dans l'environnement ou elle va \^etre d\'eploy\'ee.
-
-\item La s\'ecurit\'e : Les diff\'erents comptes utilis\'es par les utilisateurs doivent \^etre s\'ecuris\'es et v\'erifi\'es pour \'eviter les faux comptes et les fausses informations.
-
-\item La fiabilit\'e : Touche \`a l'aspect qualit\'e des donn\'ees et persistance des informations dans l'application ainsi que la vitesse de chargement des interfaces.
-\end{itemize} 
-
-Aussi l'application doit fonctionner d'une fa\c{c}on coh\'erente sans erreur
-
-
-
-
-
-
-
-
-On a dr\'esse le RoadMap qui va \^etre r\'ealiser entre Mars et Juin.
-
-\begin{figure}[!htb]
-	\center{\includegraphics[width=\textwidth]{Figures/roadmap.png}}
-	\caption{\label{fig:my-label} RoadMap du projet}
-\end{figure}
-
-
 \subsection{Description des cas d'utilisation}
+\textbf{Prospecteur :} Les grandes \'etapes pour un prospecteur lors de l'utilisation de l'application prospektor.
+\begin{itemize}
+  \item Ouvrir l'application prospektor
+  \item S'authentifier
+  \begin{itemize}
+    \item Consulter les anomalies en cours de traitement
+    \item Consulter les demandes d'intervention
+    \item Consulter l'historique des anomalies
+    \item Consulter le rapport des tourn\'ees
+    \item D\'emarrer \& Continuer une tourn\'ee
+    \begin{itemize}
+      \item sp\'ecifier la localisation du prospection
+      \item Remplir la check-list des \'el\'ements \`a auditer
+      \item Cr\'eation d'une anomalie au cas d'un d\'erangement
+      \item Ajouter des attachements (audio \& photos) si n\'ecessaire
+    \end{itemize}
+    \item Continuer la tourn\'ee vers un autre chantier
+    \item Obtenir le rapport complet de la tourn\'ee 
+  \end{itemize}
+\end{itemize}
+
+\textbf{Exploitant :} Les grandes \'etapes pour un exploitant lors de l'utilisation de l'application prospektor.
+\begin{itemize}
+  \item Ouvrir l'application prospektor
+  \item S'authentifier
+  \begin{itemize}
+    \item Consulter les anomalies en cours
+    \item Consulter les anomalies \`a traiter
+    \item Consulter l'historique des anomalies
+  \end{itemize}
+\end{itemize}
+
+    
+
+
+    
+
+
+
 \section{Conclusion}
