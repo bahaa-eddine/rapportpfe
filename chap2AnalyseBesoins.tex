@@ -4,25 +4,45 @@ Ce chapitre est consacr\'e \`a l'analyse et \`a la sp\'ecification des besoins f
 \section{Analyse des besoins}
 Dans cette partie, nous pr\'esenterons les besoins fonctionnels et non fonctionnels identifi\'es apr\`es la s\'election des besoins.
 \subsection{Identification des acteurs}
-Dans le cas de notre projet on consid\`ere deux acteurs :
+Dans le cas de notre projet on consid\`ere trois acteurs :
 \begin{itemize}
 \item \textbf{Le prospecteur} : Il a comme mission principale de g\'erer les anomalies de la plateforme.
 \item \textbf{L'exploitant} : Il permet de r\'epondre sur les anomalies qui ne sont pas encore r\'esolu.
+\item \textbf{L'administrateur} : Il permet de g\'erer les  autres utilisateurs (prospecteurs, exploitants), les machines ,les g\'eolocalisation ... .
 \end{itemize}
 \subsection{Les besoins fonctionnels}
 Au cours de cette \'etape, nous allons extraire les diff\'erentes fonctionnalit\'es offertes par notre projet.
 \begin{itemize}
-\item L'application prospektor doit permettre \`a chaque prospecteur de :
+\item L'application \textcolor{red}{prospektor} doit permettre \`a chaque prospecteur de :
 \begin{itemize}
 \item suivre et consulter les anomalies qui a cr\'eer.
 \item consulter la liste des attachements li\'ees par anomalies.
 \end{itemize}
-\item L'application prospektor doit permettre \`a chaque exploitant de :
+\item L'application \textcolor{red}{prospektor} doit permettre \`a chaque exploitant de :
 \begin{itemize}
 \item suivre et consulter les anomalies par \'etape, date \& criticit\'e.
 \item consulter les attachements li\'ees par anomalies.
 \item Ajouter des attachements aux anomalies qui ne sont pas encore r\'esolu.
 \end{itemize}  
+\item L'application \textcolor{red}{prospektor} doit permettre \`a chaque administrateur de :
+\begin{itemize}
+\item G\'erer :
+\begin{itemize}
+\item Prospecteurs
+\item Exploitants
+\item G\'eolocalisation (Mine, Zone, Tranch\'ee, Sortie)
+\item Machines
+\end{itemize}
+\item Consulter :
+\begin{itemize}
+\item Tourn\'ees
+\item Chantiers
+\item Erreurs
+\item ...
+\end{itemize}
+
+\end{itemize} 
+ 
 \end{itemize}
 
 \subsection{Les besoins non fonctionnels}
@@ -60,10 +80,16 @@ Cette figure repr\'esente le diagramme de cas d'utilisation globale de l'acteur 
 	\caption{\label{fig:my-label} Diagramme de cas d'utilisation globale pour l'exploitant}
 \end{figure}
 
+Cette figure repr\'esente le diagramme de cas d'utilisation globale de l'acteur administrateur :
+\begin{figure}[H]
+	\center{\includegraphics[width=\textwidth]{Figures/adminDiagram.png}}
+	\caption{\label{fig:my-label} Diagramme de cas d'utilisation globale pour l'administrateur}
+\end{figure}
+
 \subsection{Description des cas d'utilisation}
 \textbf{Prospecteur :} Les grandes \'etapes pour un prospecteur lors de l'utilisation de l'application prospektor.
 \begin{itemize}
-  \item Ouvrir l'application prospektor
+  \item Ouvrir l'application mobile prospektor
   \item S'authentifier
   \begin{itemize}
     \item Consulter les anomalies en cours de traitement
@@ -84,12 +110,42 @@ Cette figure repr\'esente le diagramme de cas d'utilisation globale de l'acteur 
 
 \textbf{Exploitant :} Les grandes \'etapes pour un exploitant lors de l'utilisation de l'application prospektor.
 \begin{itemize}
-  \item Ouvrir l'application prospektor
+  \item Ouvrir l'application mobile prospektor
   \item S'authentifier
   \begin{itemize}
     \item Consulter les anomalies en cours
     \item Consulter les anomalies \`a traiter
     \item Consulter l'historique des anomalies
+  \end{itemize}
+\end{itemize}
+
+\textbf{Administrateur :} Les grandes \'etapes pour un administrateur lors de l'utilisation de l'application prospektor.
+\begin{itemize}
+  \item Ouvrir l'application web prospektor
+  \item S'authentifier
+  \begin{itemize}
+    \item Consulter les utilisateurs (prospecteur \& exploitant).
+    \begin{itemize}
+    \item Ajouter un utilisateur.
+    \item Supprimer un utilisateur.
+    \item Modifier un utilisateur.
+    \item D\'esactiv\'e un utilisateur.
+    \item Consulter les d\'etails d'un utilisateur.
+    \end{itemize}
+    \item G\'erer les localisations (Mine, Zone, Tranch\'ee, Sortie).
+    \item Consulter les machines.
+    \begin{itemize}
+    \item Ajouter une machine.
+    \item Supprimer une machine.
+    \item Modifier une machine.
+    \item D\'esactiv\'e une machine.
+    \item Consulter les d\'etails d'une machine.
+    \end{itemize}
+    \item Consulter les tourn\'ees.
+    \item Consulter les chantiers par zones ou par \'etape.
+    \item Consulter les anomalies par criticit\'e.
+    \item ...
+
   \end{itemize}
 \end{itemize}
 
@@ -108,10 +164,10 @@ Pour notre projet prospektor, On a d\'efinie
 	\center{\includegraphics[width=\textwidth]{Figures/mvp.PNG}}
 	\caption{\label{fig:my-label} RoadMap de la version \gls{MVP}}
 \end{figure}
-\subsection{version 1}
+\subsection{Post MVP}
 \begin{figure}[H]
 	\center{\includegraphics[width=\textwidth]{Figures/version1.PNG}}
-	\caption{\label{fig:my-label} RoadMap de la version 1}
+	\caption{\label{fig:my-label} RoadMap de la version Post MVP}
 \end{figure}
 
  
