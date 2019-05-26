@@ -25,6 +25,40 @@ architecture du syst\`eme est compose par:
 \item \gls{NFS}, litt\'eralement système de fichiers en r\'eseau, est \`a l'origine un protocole qui permet \`a un ordinateur d'acc\'eder via un r\'eseau \`a des fichiers distants.
 \end{itemize}
 
+\subsection{Architecture applicative : cas g\'en\'eral pour le backend}
+
+Pour les services Backend le choix de l'architecture applicative suit une d\'ecomposition en quatre couches :
+\begin{itemize}
+\item Couche DAO : c'est la couche d'accd\`es aux donn\'ees persistant dans la SGBD.
+\item Couche Services : impl\'emente la logique m\'etier du service, et les diff\'erentes rd\`egles de gestion qui repr\'esentent les fonctionnalit\'es du service.
+\item Couche API : il permet l'encapsulation des diff\'erents services dans une API RESTfull et fournit les contr\^oleurs l'accd\`es \`a ces services.
+\end{itemize}
+
+\begin{figure}[H]
+	\center{\includegraphics[width=\textwidth]{Figures/backend.PNG}}
+	\caption{\label{fig:my-label} Architecture Applicative backend}
+\end{figure}
+
+
+\subsection{Architecture applicative : cas g\'en\'eral pour le backoffice}
+
+\begin{figure}[H]
+	\center{\includegraphics[width=\textwidth]{Figures/backoffice.png}}
+	\caption{\label{fig:my-label} Architecture Applicative backoffice}
+\end{figure}
+
+
+\subsection{Architecture applicative : cas g\'en\'eral pour le frontoffice}
+
+\begin{figure}[H]
+	\center{\includegraphics[width=\textwidth]{Figures/frontoffice.PNG}}
+	\caption{\label{fig:my-label} Architecture Applicative frontoffice}
+\end{figure}
+
+\subsection{\gls{API}s externes}
+
+
+
 \section{\gls{ERD}}
 Un certain nombre de techniques de mod\'elisation de donnd\'ees sont utilisd\'ees aujourd'hui. L'un des plus courants est le diagramme de relation d'entitd\'e (\gls{ERD}). Plusieurs notations \gls{ERD} sont disponibles. Nous avons utilis\'e la notation du Crow's Foot.
 
@@ -46,6 +80,8 @@ La \textbf{cardinalit\'e} et la \textbf{modalit\'e} sont les indicateurs des r\`
 \caption{Cardinalit\'e du Crow's Foot}
 \end{center}
 \end{table}
+
+Le diagramme du crow's foot de notre projet prospektor est repr\'esent\'e dans le figure ci-dessous :
 
 \begin{figure}[H]
 	\center{\includegraphics[width=\textwidth]{Figures/crowsfeet.PNG}}
