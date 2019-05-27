@@ -27,7 +27,7 @@ architecture du syst\`eme est compose par:
 
 \subsection{Architecture applicative : cas g\'en\'eral pour le backend}
 
-Pour les services Backend le choix de l'architecture applicative suit une d\'ecomposition en quatre couches :
+Pour les services Backend le choix de l'architecture applicative suit une d\'ecomposition en trois couches :
 \begin{itemize}
 \item Couche DAO : c'est la couche d'accd\`es aux donn\'ees persistant dans la SGBD.
 \item Couche Services : impl\'emente la logique m\'etier du service, et les diff\'erentes rd\`egles de gestion qui repr\'esentent les fonctionnalit\'es du service.
@@ -42,20 +42,48 @@ Pour les services Backend le choix de l'architecture applicative suit une d\'eco
 
 \subsection{Architecture applicative : cas g\'en\'eral pour le backoffice}
 
+L'architecture qu'on va utiliser agit comme un conteneur d'\'etat et facilite la gestion du flux de donn\'ees de notre application. Il a \'et\'e introduit en 2015 lors de la conf\'erence \textcolor{red}{ReactEurope} de \textcolor{red}{Dan Abramov}. Elle ressemble \`a l'architecture Flux et a beaucoup en commun avec elle.
+
 \begin{figure}[H]
-	\center{\includegraphics[width=\textwidth]{Figures/backoffice.png}}
+	\center{\includegraphics[width=0.6\textwidth]{Figures/backoffice.png}}
 	\caption{\label{fig:my-label} Architecture Applicative backoffice}
 \end{figure}
 
+Nous avons les composants de vue qui envoient une action. La m\^eme action peut \^etre envoy\'ee par une autre partie de notre syst\`eme. Cette action est envoy\'ee non pas \`a un hub central, mais directement au store. Nous disons "store" et non "stores" car il n'y en a qu'un global. La logique qui a d\'ecid\'e comment nos donn\'ees changent vit dans des fonctions pures appel\'ees reducers. Une fois que le store re\c{c}oit une action, il demande aux reducers la nouvelle version de l'\'etat en envoyant l'\'etat actuel et l'action en question. Ensuite, de mani\`ere immuable, le reducer doit retourner le nouvel \'etat. Le store continue \`a partir de l\`a et met \`a jour son \'etat interne. Enfin, le composant c\^abl\'e au store est rendu \`a nouveau.
+
 
 \subsection{Architecture applicative : cas g\'en\'eral pour le frontoffice}
+
+Le mod\'ele de conception architecturale \gls{MVP1} est un mod\'ele de conception assez connu des d\'eveloppeurs Android. Il vous permet de d\'ecoupler la logique m\'etier de la logique de vue (Activit\'e / Fragment) en introduisant un interm\'ediaire appel\'e Pr\'esentateur.
+
+Comme son nom l'indique, \gls{MVP1} est divis\'e en trois couches diff\'erentes.
+
+\begin{itemize}
+
+\item \textbf{Mod\'ele} - Comme mentionn\'e ci-dessous, o\`u est stock\'ee votre logique m\'etier et votre application de donn\'ees? Sous Android, le r\^ole d'un mod\'ele est g\'en\'eralement jou\'e par l'\gls{API} ou l'\gls{API} \gls{REST}.
+
+Il est non seulement responsable du stockage des donn\'ees de l'application, mais \'egalement de composants contenant des responsabilit\'es pour la g\'en\'eration, l'exposition et la r\'ecup\'eration des donn\'ees.
+
+En g\'en\'eral, toutes ces fonctionnalit\'es sont ex\'ecut\'ees en arri\'ere-plan car elles peuvent bloquer le thread d'interface utilisateur.
+
+\item \textbf{View} - View est essentiellement une interface d'utilisateur passive qui est responsable du routage de l'action de l'utilisateur vers le pr\'esentateur. 
+
+En g\'en\'eral, l'affichage n'est pas visible pour votre mod\'ele, \`a l'exception du POJOS et des entit\'es de l'application. Pour faire plus simplement, les vues ne communiquent pas directement avec les mod\'eles. Cependant, ils parlent aux pr\'esentateurs.
+
+\item \textbf{Presenter} - Le pr\'esentateur est l'interm\'ediaire ou le m\'ediateur entre View et Model.
+
+En termes g\'en\'eraux, Presenter interroge le mod\'ele et met \`a jour la vue tout en r\'epondant aux interactions de l'utilisateur.
+
+Il surveille la fa\c{c}on dont ils sont, et ils ne peuvent pas le g\'erer.
+
+\end{itemize}
 
 \begin{figure}[H]
 	\center{\includegraphics[width=\textwidth]{Figures/frontoffice.PNG}}
 	\caption{\label{fig:my-label} Architecture Applicative frontoffice}
 \end{figure}
 
-\subsection{\gls{API}s externes}
+\subsection{Les services externes}
 
 
 
