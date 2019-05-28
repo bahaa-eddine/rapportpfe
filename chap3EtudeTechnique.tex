@@ -19,7 +19,7 @@ Cette architecture est d\'efinie pour les prospecteurs et les exploitant qui von
 architecture du syst\`eme est compose par:
 \begin{itemize}
 \item \textbf{F5 VPN} : utilise le protocole Secure Sockets Layer, une technologie d'authentification et de cryptage int\'egr\'ee \`a chaque navigateur Web, pour cr\'eer une connexion s\'ecuris\'ee et crypt\'ee sur un r\'eseau moins s\'ecuris\'e, comme Internet.
-\item \textbf{MINIO} : vous permet d'utiliser un seul NAS (comme NFS, GlusterFS et d'autres systèmes de fichiers distribu\'es) en tant que syst\`eme de stockage pour plusieurs serveurs MinIO. La synchronisation entre les serveurs MinIO est prise en charge par la conception.
+\item \textbf{MINIO} : vous permet d'utiliser un seul \gls{NAS} (comme \gls{NFS}, GlusterFS et d'autres syst\`emes de fichiers distribu\'es) en tant que syst\`eme de stockage pour plusieurs serveurs MinIO. La synchronisation entre les serveurs MinIO est prise en charge par la conception.
 \item \gls{AD} est un syst\`eme bas\'e sur une base de donn\'ees qui fournit une authentification, un annuaire, une strat\'egie et d'autres services dans un environnement Windows.
 \item \gls{LDAP} est un protocole d'application permettant d'interroger et de modifier des \'el\'ements dans des fournisseurs de services d'annuaire tels qu'Active Directory, qui prend en charge une forme LDAP.
 \item \gls{NFS}, litt\'eralement système de fichiers en r\'eseau, est \`a l'origine un protocole qui permet \`a un ordinateur d'acc\'eder via un r\'eseau \`a des fichiers distants.
@@ -58,6 +58,11 @@ Le mod\'ele de conception architecturale \gls{MVP1} est un mod\'ele de conceptio
 
 Comme son nom l'indique, \gls{MVP1} est divis\'e en trois couches diff\'erentes.
 
+\begin{figure}[H]
+	\center{\includegraphics[width=\textwidth]{Figures/frontoffice.PNG}}
+	\caption{\label{fig:my-label} Architecture Applicative frontoffice}
+\end{figure}
+
 \begin{itemize}
 
 \item \textbf{Mod\'ele} - Comme mentionn\'e ci-dessous, o\`u est stock\'ee votre logique m\'etier et votre application de donn\'ees? Sous Android, le r\^ole d'un mod\'ele est g\'en\'eralement jou\'e par l'\gls{API} ou l'\gls{API} \gls{REST}.
@@ -78,13 +83,14 @@ Il surveille la fa\c{c}on dont ils sont, et ils ne peuvent pas le g\'erer.
 
 \end{itemize}
 
-\begin{figure}[H]
-	\center{\includegraphics[width=\textwidth]{Figures/frontoffice.PNG}}
-	\caption{\label{fig:my-label} Architecture Applicative frontoffice}
-\end{figure}
-
 \subsection{Les services externes}
 
+Dans notre projet, on est besoin de trois services externes qui sont d\'ej\`a r\'ealiser par l'entit\'e \gls{DF}. La communication avec ces services se base sur les requ\^etes \gls{HTTP} \& leurs utilit\'es sont:
+\begin{itemize}
+\item \textbf{Service d'authentification} : permet de v\'erifier l'identit\'e d'un utilisateur, est ce qu'il est appartient au groupe \gls{OCP}.
+\item \textbf{Service Minio} : permet de stocker les attachements des anomalies. On va utiliser le protocole \gls{NFS} lors du stockage.
+\item \textbf{Service Notification} : permet d'envoyer des messages \gls{SMS}.
+\end{itemize}
 
 
 \section{\gls{ERD}}
