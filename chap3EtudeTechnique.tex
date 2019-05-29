@@ -25,8 +25,23 @@ architecture du syst\`eme est compose par:
 \item \gls{NFS}, litt\'eralement système de fichiers en r\'eseau, est \`a l'origine un protocole qui permet \`a un ordinateur d'acc\'eder via un r\'eseau \`a des fichiers distants.
 \end{itemize}
 
-\subsection{Architecture applicative : cas g\'en\'eral pour le backend}
+\subsection{Architecture applicative} 
 
+D'apr\`es l'architecture globale du syst\`eme, on constat qu'elle est composs\'e par deux parties :
+
+\begin{itemize}
+\item \textbf{Partie backend :} qui se repr\'esente par l'API prospektor, est la partie serveur ou partie logique m\'etier.
+\item \textbf{Partie frontend :} qui repr\'esente la partie client ou partie interface.\\
+Dans notre projet, elle se d\'ecompose par deux parties :
+\begin{itemize}
+\item Une application de \textbf{back-office} comprend le logiciel utilis\'e par une organisation pour administrer des op\'erations qui ne sont li\'ees \`a aucun effort de vente directe et \`a des interfaces qui ne sont pas vues par les consommateurs.
+\item En revanche, une application de type \textbf{front-office} serait une interface client facilitant la vente ou le traitement d'une transaction.
+\end{itemize}
+\end{itemize}
+
+
+
+\subsubsection{Cas g\'en\'eral pour le backend}
 Pour les services Backend le choix de l'architecture applicative suit une d\'ecomposition en trois couches :
 \begin{itemize}
 \item Couche DAO : c'est la couche d'accd\`es aux donn\'ees persistant dans la SGBD.
@@ -40,7 +55,7 @@ Pour les services Backend le choix de l'architecture applicative suit une d\'eco
 \end{figure}
 
 
-\subsection{Architecture applicative : cas g\'en\'eral pour le backoffice}
+\subsubsection{Cas g\'en\'eral pour le backoffice}
 
 L'architecture qu'on va utiliser agit comme un conteneur d'\'etat et facilite la gestion du flux de donn\'ees de notre application. Il a \'et\'e introduit en 2015 lors de la conf\'erence \textcolor{red}{ReactEurope} de \textcolor{red}{Dan Abramov}. Elle ressemble \`a l'architecture Flux et a beaucoup en commun avec elle.
 
@@ -52,7 +67,7 @@ L'architecture qu'on va utiliser agit comme un conteneur d'\'etat et facilite la
 Nous avons les composants de vue qui envoient une action. La m\^eme action peut \^etre envoy\'ee par une autre partie de notre syst\`eme. Cette action est envoy\'ee non pas \`a un hub central, mais directement au store. Nous disons "store" et non "stores" car il n'y en a qu'un global. La logique qui a d\'ecid\'e comment nos donn\'ees changent vit dans des fonctions pures appel\'ees reducers. Une fois que le store re\c{c}oit une action, il demande aux reducers la nouvelle version de l'\'etat en envoyant l'\'etat actuel et l'action en question. Ensuite, de mani\`ere immuable, le reducer doit retourner le nouvel \'etat. Le store continue \`a partir de l\`a et met \`a jour son \'etat interne. Enfin, le composant c\^abl\'e au store est rendu \`a nouveau.
 
 
-\subsection{Architecture applicative : cas g\'en\'eral pour le frontoffice}
+\subsubsection{Cas g\'en\'eral pour le frontoffice}
 
 Le mod\'ele de conception architecturale \gls{MVP1} est un mod\'ele de conception assez connu des d\'eveloppeurs Android. Il vous permet de d\'ecoupler la logique m\'etier de la logique de vue (Activit\'e / Fragment) en introduisant un interm\'ediaire appel\'e Pr\'esentateur.
 
@@ -83,7 +98,7 @@ Il surveille la fa\c{c}on dont ils sont, et ils ne peuvent pas le g\'erer.
 
 \end{itemize}
 
-\subsection{Les services externes}
+\subsubsection{Les services externes}
 
 Dans notre projet, on est besoin de trois services externes qui sont d\'ej\`a r\'ealiser par l'entit\'e \gls{DF}. La communication avec ces services se base sur les requ\^etes \gls{HTTP} \& leurs utilit\'es sont:
 \begin{itemize}
