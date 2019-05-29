@@ -2,3 +2,39 @@
 
 \section{Introduction}
 
+Ce chapitre aborde comme sujet les choix technologiques et les outils pour l'impl\'ementation de notre solution ainsi le benchmarking de chaque technologie utilis\'e.
+
+\section{Technologies utilises}
+
+Apr\`es avoir entam\'e la phase de conception g\'en\'erale du projet. On va commencer \`a citer  les diff\'erents technologies pour d\'evelopper notre projet selon architecture globale du syst\`eme. Une \'etude qui a \'et\'e faite par l'entit\'e \gls{DF}, ils sont convaincu d'adapter SpringBoot au niveau backend (serveur) \& React au niveau frontend (client) dans touts les projets du groupe \gls{OCP}.
+
+Pour notre projet \textcolor{red}{prospektor}, on a utilis\'e :
+
+\subsection{BackEnd : \textcolor{spring}{SpringBoot}}
+
+D'apr\`es les r\'esultats de l'\'etude Benchmarking, Spring Boot r\'epond en moyenne \`a notre besoin en terme de performance.
+
+Le choix de Spring Boot est aussi justifi\'e par plusieurs raisons que celles de la performance. En effet, Spring Boot a \'et\'e con\c{c}u pour rendre la vie du d\'eveloppeur plus simple et lui permettre de se concentrer sur le c\oe{}ur de l'application et non pas sur les aspects annexes : configuration, s\'ecurit\'e, d\'eploiement ...
+
+Spring Boot est un framework Java open source utilis\'e pour cr\'eer un Micro Service. Il est d\'evelopp\'e par l'\'equipe pivotal. Il est facile de cr\'eer des stand-alone applications. Spring Boot contient une prise en charge compl\`ete de l'infrastructure pour le d\'eveloppement d'un micro-service et vous permet de d\'evelopper des applications d'entreprise.
+
+\begin{figure}[H]
+	\center{\includegraphics[width=0.4\textwidth]{Figures/springboot.png}}
+	\caption{\label{fig:my-label} Logo de springboot}
+\end{figure}
+
+\subsection{BackOffice : \textcolor{react}{React}/\textcolor{redux}{Redux}}
+
+L'\'etude Benchmarking justifier que React/Redux r\'epond au trois m\'etriques :
+
+\begin{itemize}
+\item \textbf{La performance} : combien de temps cette application prend-elle pour afficher le contenu et devenir utilisable?
+\item \textbf{La taille} : quelle est la taille de l'application ? Nous comparerons seulement la taille des fichiers JavaScript compil\'es. Toutes les technologies se compilent ou se transforment en JavaScript, donc nous ne dimensionnons que ces fichiers.
+\item \textbf{Les lignes de code} : de combien de lignes de code le d\'eveloppeur a-y-il besoin pour cr\'eer son application ? Pour \^etre juste certaines applications ont un peu plus de cloches et de sifflets, mais cela ne devrait pas avoir un impact significatif. Le seul dossier que nous quantifions est /src dans chaque application.
+\end{itemize}
+
+\begin{figure}[H]
+	\center{\includegraphics[width=0.4\textwidth]{Figures/react.png}}
+	\caption{\label{fig:my-label} Logo de React \& Redux}
+\end{figure}
+
