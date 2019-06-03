@@ -28,7 +28,7 @@ Postman & Est actuellement l'un des outils les plus populaires utilis\'es dans l
 
 Notre syst\`eme se base en totalit\'e sur l'architecture orient\'e service et plus pr\'ecis\'ement sur l'architecture \gls{REST}. C'est un style d'architecture pour la conception d'applications faiblement coupl\'ees sur \gls{HTTP}, souvent utilis\'e dans le d\'eveloppement de services Web.
 
-Une \'etude qui a \'et\'e faite par l'entit\'e \gls{DF}, ils sont convaincu d'adapter quelques technologies qu'on va les utiliser. La figure suivante repr\'esente les technologies utilises dans notre projet.
+Une \'etude qui a \'et\'e faite par l'entit\'e \gls{DF}, ils sont convaincu d'adapter quelques technologies \& outils dans tous les projets. La figure suivante repr\'esente les technologies \& les biblioth\`eques essentiels utilises dans notre projet.
 
 \begin{figure}[H]
 	\center{\includegraphics[width=\textwidth]{Figures/achitec-tech.PNG}}
@@ -50,10 +50,20 @@ Maintenant, on va expliquer l'utilit\'e des technologies utilises dans notre imp
 
 \end{itemize}
 
-\subsection{Couche FrontOffice}
+\subsection{Couche FrontEnd}
+
+On a suivre \textbf{Material Design} dans toutes les interfaces de notre application (est un ensemble de r\`egles de design propos\'ees par \textbf{Google} et qui s'appliquent \`a l'interface graphique des logiciels et applications).
+
+Cette couche d\'ecompose \`a deux parties :
+
+\subsubsection{Couche FrontOffice}
+
+Pour la partie frontOffice, on a une application mobile d\'evelopp\'e par android native, utilisant le langage JAVA pour une tablette sp\'ecifique utiliser dans les chantiers du groupe \gls{OCP}. 
+
+\subsubsection{Couche BackOffice}
 \begin{itemize}
 
-\item \textcolor{react}{ReactJS} : est essentiellement une biblioth\`eque JavaScript open-source qui est utilis\'ee pour cr\'eer des interfaces utilisateur sp\'ecifiquement pour les applications à page unique. React nous permet \'egalement de cr\'eer des composants d'interface utilisateur r\'eutilisables.
+\item \textcolor{react}{ReactJS} : est essentiellement une biblioth\`eque JavaScript open-source qui est utilis\'ee pour cr\'eer des interfaces utilisateur sp\'ecifiquement pour les applications \`a page unique. React nous permet \'egalement de cr\'eer des composants d'interface utilisateur r\'eutilisables.
 
 \item \textcolor{redux}{Redux} : Biblioth\`eque compl\'ementaire \`a React qui permet de conserver facilement les donn\'ees (State) et les \'ev\'enements (Actions) .Redux isole l'objet d'\'etat des composants.
 
@@ -61,9 +71,60 @@ Maintenant, on va expliquer l'utilit\'e des technologies utilises dans notre imp
 
 \end{itemize}
 
-\subsection{Couche BackOffice}
+\subsection{Couche Base de donn\'ees}
 \begin{itemize}
+\item \textbf{MySQL} : est un syst\`eme de gestion de base de donn\'ees relationnelle open source bas\'e sur le langage \gls{SQL}. Leur utilit\'e est faire stocker les donn\'ees textuel de notre application.
+\item \textbf{MINIO} : est un serveur de stockage d'objets haute performance compatible avec les API Amazon S3. Pour faire stocker les attachements de l'application ( images \& audios ).
+\end{itemize}
 
-\item
+\subsection{Outils de DevOps}
+
+\begin{itemize}
+\item \textbf{Docker} : est un outil con\c{c}u pour faciliter la cr\'eation, le d\'eploiement et l'ex\'ecution d'applications \`a l'aide de conteneurs. Les conteneurs permettent \`a un d\'eveloppeur de conditionner une application avec toutes les pi\`eces dont il a besoin, telles que des biblioth\`eques et autres d\'ependances, et de l'exp\'edier dans un package unique.
+
+\item \textbf{Kubernetes} : est un syst\`eme d'orchestration de conteneur open-source permettant d'automatiser le d\'eploiement, la mise \`a l'\'echelle et la gestion des applications.
 
 \end{itemize}
+
+\section{Impl\'ementation \& tests}
+
+Nous avons r\'eparti le travail en plusieurs it\'erations (Sprints). Le sprint est un bloc de temps (1 semaine) durant lequel un incr\'ement du produit sera r\'ealis\'e. Tous les sprints ont une dur\'ee constante et ne chevauchent jamais. Tout au long de cette partie, on va traiter le sprint 5 "Cr\'eer un chantier" comme mod\`ele, puis on va donner des captures d'\'ecran de r\'esultat final du notre projet avec les tests de validation.
+
+\subsection{Sprint mod\`ele : Cr\'eer un chantier}
+
+\subsubsection{Description g\'en\'erale du sprint}
+
+Au cours de ce sprint nous sommes focalis\'es sur la cr\'eation d'un chantier. Dans un premier temps, on va afficher une \'ecran qui permet au utilisateur de remplir les \'el\'ements n\'ecessaire pour cr\'eer un chantier.
+
+\subsubsection{Description d\'etaille du sprint}
+
+Apr\`es l'authentification, le prospecteur passe \`a l'\'ecran d'accueil. Puis, l'application peut suivre les d\'emarches suivantes :
+\begin{figure}[H]
+	\center{\includegraphics[width=0.4\textwidth]{Figures/acceuil.PNG}}
+	\caption{\label{fig:my-label} Ecran d'acceuil}
+\end{figure}
+\begin{itemize}
+\item Prospecteur peut cliquer sur le button (D\'emarrer une tourn\'ee).
+\item la tablette envoie au serveur une requ\^ete pour g\'en\'erer un chantier vide et recevoir leur identifiant.
+\item Passant \`a l'autre \'ecran qui contient les d\'etails d'un chantier.
+\item Avant afficher l'\'ecran, la tablette demande au serveur toutes les informations sur les machines, zones, trench\'ees \& sorties d'une mine sp\'ecifique.
+\item Apr\'es la r\'eception de ces informations, l'\'ecran sera afficher et le prospecteur peut remplir les champs de chantier d'une fa\c{c}on ordonn\'ee.
+\begin{figure}[H]
+	\center{\includegraphics[width=\textwidth]{Figures/chantier.PNG}}
+	\caption{\label{fig:my-label} Ecran de chantier}
+\end{figure}
+\item Enfin, une button pour la  confirmation.
+\item une requ\^ete sera envoy\'e au serveur qui contient tout les informations sur cette tourn\'ee.
+\end{itemize} 
+
+
+\subsection{Captures d'\'ecran}
+
+\subsection{Test de validation}
+
+\section{Conclusion}
+
+
+
+
+
