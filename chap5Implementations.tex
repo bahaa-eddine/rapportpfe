@@ -88,13 +88,13 @@ Pour la partie frontOffice, on a une application mobile d\'evelopp\'e par androi
 
 \section{Impl\'ementation \& tests}
 
-Nous avons r\'eparti le travail en plusieurs it\'erations (Sprints). Le sprint est un bloc de temps (1 semaine) durant lequel un incr\'ement du produit sera r\'ealis\'e. Tous les sprints ont une dur\'ee constante et ne chevauchent jamais. Tout au long de cette partie, on va traiter le sprint 5 "Cr\'eer un chantier" comme mod\`ele, puis on va donner des captures d'\'ecran de r\'esultat final du notre projet avec les tests de validation.
+Nous avons r\'eparti le travail en plusieurs it\'erations (Sprints). Le sprint est un bloc de temps (1 semaine) durant lequel un incr\'ement du produit sera r\'ealis\'e. Tous les sprints ont une dur\'ee constante et ne chevauchent jamais. Tout au long de cette partie, on va traiter le sprint 5 "Cr\'eer un chantier" comme mod\`ele pour tous les autres sprints, puis on va donner des captures d'\'ecran de r\'esultat final du notre projet avec les tests de validation.
 
 \subsection{Sprint mod\`ele : Cr\'eer un chantier}
 
 \subsubsection{Description g\'en\'erale du sprint}
 
-Au cours de ce sprint nous sommes focalis\'es sur la cr\'eation d'un chantier. Dans un premier temps, on va afficher une \'ecran qui permet au utilisateur de remplir les \'el\'ements n\'ecessaire pour cr\'eer un chantier.
+Au cours de ce sprint nous sommes focalis\'es sur la cr\'eation d'un chantier. Dans un premier temps, on va afficher une \'ecran qui permet au utilisateur de remplir les \'el\'ements n\'ecessaire pour cr\'eer un chantier. Cette sprint se base sur la partie frontOffice (concernant l'utilisateur de l'application mobile).
 
 \subsubsection{Description d\'etaille du sprint}
 
@@ -111,12 +111,18 @@ Apr\`es l'authentification, le prospecteur passe \`a l'\'ecran d'accueil. Puis, 
 \item Apr\'es la r\'eception de ces informations, l'\'ecran sera afficher et le prospecteur peut remplir les champs de chantier d'une fa\c{c}on ordonn\'ee.
 \begin{figure}[H]
 	\center{\includegraphics[width=\textwidth]{Figures/chantier.PNG}}
-	\caption{\label{fig:my-label} Ecran de chantier}
+	\caption{\label{fig:my-label} \'Ecran de chantier}
 \end{figure}
 \item Enfin, une button pour la  confirmation.
 \item une requ\^ete sera envoy\'e au serveur qui contient tout les informations sur cette tourn\'ee.
 \end{itemize} 
 
+On a d\'eveloppe les derni\`eres \'ecran par android studio. respectant l'architecture \gls{MVP} qu'on a d\'ej\`a cit\'e.
+
+\begin{figure}[H]
+	\center{\includegraphics[width=\textwidth]{Figures/androidstudio.PNG}}
+	\caption{\label{fig:my-label} Outil Android Studio}
+\end{figure}
 
 \subsection{Captures d'\'ecran}
 
