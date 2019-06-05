@@ -88,7 +88,7 @@ Pour la partie frontOffice, on a une application mobile d\'evelopp\'e par androi
 
 \section{Impl\'ementation \& tests}
 
-Nous avons r\'eparti le travail en plusieurs it\'erations (Sprints). Le sprint est un bloc de temps (1 semaine) durant lequel un incr\'ement du produit sera r\'ealis\'e. Tous les sprints ont une dur\'ee constante et ne chevauchent jamais. Tout au long de cette partie, on va traiter le sprint 5 "Cr\'eer un chantier" comme mod\`ele pour tous les autres sprints, puis on va donner des captures d'\'ecran de r\'esultat final du notre projet avec les tests de validation.
+Nous avons r\'eparti le travail en plusieurs it\'erations (Sprints). Le sprint est un bloc de temps (1 semaine) durant lequel un incr\'ement du produit sera r\'ealis\'e. Tous les sprints ont le m\^eme dur\'ee et ne chevauchent jamais. Tout au long de cette partie, on va traiter le sprint 5 "Cr\'eer un chantier" comme mod\`ele pour tous les autres sprints, puis on va donner des captures d'\'ecran de la r\'esultat courant du notre projet avec les tests de validation.
 
 \subsection{Sprint mod\`ele : Cr\'eer un chantier}
 
@@ -117,14 +117,59 @@ Apr\`es l'authentification, le prospecteur passe \`a l'\'ecran d'accueil. Puis, 
 \item une requ\^ete sera envoy\'e au serveur qui contient tout les informations sur cette tourn\'ee.
 \end{itemize} 
 
-On a d\'eveloppe les derni\`eres \'ecran par android studio. respectant l'architecture \gls{MVP} qu'on a d\'ej\`a cit\'e.
+On a d\'eveloppe les derni\`eres \'ecran par android studio. respectant l'architecture \gls{MVP} qu'on a d\'ej\`a expliq\'e.
 
 \begin{figure}[H]
 	\center{\includegraphics[width=\textwidth]{Figures/androidstudio.PNG}}
 	\caption{\label{fig:my-label} Outil Android Studio}
 \end{figure}
 
-\subsection{Captures d'\'ecran}
+\subsection{Captures d'\'ecran du r\'esultat courant}
+
+Pour la r\'esultat courant de notre application. On a cr\'ee les proc\'edures suivantes : 
+
+\subsubsection{Prospecteur WorkFlow}
+
+ce qui concerne le frontoffice pour l'utilisateur prospecteur, il peut suivre les \'etapes suivantes :
+
+\begin{figure}[H]
+	\center{\includegraphics[width=\textwidth]{Figures/workflowprospector.PNG}}
+	\caption{\label{fig:my-label} Prospecteur WorkFlow}
+\end{figure}
+
+\textbf{1} : Authentification
+
+\textbf{2} : Page d'accueil
+
+\textbf{3} : Cr\'eation d'un chantier
+
+\textbf{4} : Checklist d'un chantier
+
+\textbf{5} : Creation d'une anomalie \& Ajouter des attachements
+
+\textbf{6} : liste des chantiers
+
+\textbf{7} : Rapport d'une tour\'ee
+
+\textbf{8} : liste des anomalies
+
+\subsubsection{Exploitant WorkFlow}
+
+ce qui concerne le frontoffice pour l'utilisateur exploitant, il peut suivre les \'etapes suivantes :
+
+\begin{figure}[H]
+	\center{\includegraphics[width=\textwidth]{Figures/workflowexploitant.PNG}}
+	\caption{\label{fig:my-label} Exploitant WorkFlow}
+\end{figure}
+
+\textbf{1} : Authentification
+
+\textbf{2} : Page d'accueil
+
+\textbf{3} : liste des anomalies cr\'eer par les prospecteurs
+
+\textbf{4,5} : Creation d'une anomalie \& Ajouter des attachements
+
 
 \subsection{Test de validation}
 
