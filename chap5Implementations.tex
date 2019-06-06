@@ -98,7 +98,7 @@ Au cours de ce sprint nous sommes focalis\'es sur la cr\'eation d'un chantier. D
 
 \subsubsection{Description d\'etaille du sprint}
 
-Apr\`es l'authentification, le prospecteur passe \`a l'\'ecran d'accueil. Puis, l'application peut suivre les d\'emarches suivantes :
+Apr\`es l'authentification, le prospecteur passe \`a l'\'ecran d'accueil. Puis, il peut suivre les d\'emarches suivantes :
 \begin{figure}[H]
 	\center{\includegraphics[width=0.4\textwidth]{Figures/acceuil.PNG}}
 	\caption{\label{fig:my-label} Ecran d'acceuil}
@@ -114,10 +114,10 @@ Apr\`es l'authentification, le prospecteur passe \`a l'\'ecran d'accueil. Puis, 
 	\caption{\label{fig:my-label} \'Ecran de chantier}
 \end{figure}
 \item Enfin, une button pour la  confirmation.
-\item une requ\^ete sera envoy\'e au serveur qui contient tout les informations sur cette tourn\'ee.
+\item une requ\^ete sera envoy\'e au serveur qui contient tout les informations sur ce chantier.
 \end{itemize} 
 
-On a d\'eveloppe les derni\`eres \'ecran par android studio. respectant l'architecture \gls{MVP} qu'on a d\'ej\`a expliq\'e.
+On a d\'eveloppe les derni\`eres \'ecran par android studio. respectant l'architecture \gls{MVP} qu'on a d\'ej\`a expliqu\'e.
 
 \begin{figure}[H]
 	\center{\includegraphics[width=\textwidth]{Figures/androidstudio.PNG}}
@@ -126,11 +126,11 @@ On a d\'eveloppe les derni\`eres \'ecran par android studio. respectant l'archit
 
 \subsection{Captures d'\'ecran du r\'esultat courant}
 
-Pour la r\'esultat courant de notre application. On a cr\'ee les proc\'edures suivantes : 
+Pour la r\'esultat courant de notre application. On va concentrer sur la partie frontoffice, c'est la partie importante dans notre projet qui suive les proc\'edures suivantes : 
 
 \subsubsection{Prospecteur WorkFlow}
 
-ce qui concerne le frontoffice pour l'utilisateur prospecteur, il peut suivre les \'etapes suivantes :
+Lors d'authentificattion comme prospecteur, l'utilisateur peut suivre les \'ecrans suivantes :
 
 \begin{figure}[H]
 	\center{\includegraphics[width=\textwidth]{Figures/workflowprospector.PNG}}
@@ -155,7 +155,7 @@ ce qui concerne le frontoffice pour l'utilisateur prospecteur, il peut suivre le
 
 \subsubsection{Exploitant WorkFlow}
 
-ce qui concerne le frontoffice pour l'utilisateur exploitant, il peut suivre les \'etapes suivantes :
+Lors d'authentificattion comme exploitant, l'utilisateur peut suivre les \'ecrans suivantes :
 
 \begin{figure}[H]
 	\center{\includegraphics[width=\textwidth]{Figures/workflowexploitant.PNG}}
@@ -171,7 +171,65 @@ ce qui concerne le frontoffice pour l'utilisateur exploitant, il peut suivre les
 \textbf{4,5} : Creation d'une anomalie \& Ajouter des attachements
 
 
-\subsection{Test de validation}
+\subsection{Tests de validation}
+
+Les tests nous permettent de v\'erifier les fonctionnalit\'es de notre syst\`eme et avoir une bonne qualit\'e de notre produit. On a utilis\'e quelques frameworks et outils pour tester notre application.
+
+\begin{table}[H]
+\begin{center}
+\begin{tabularx}{\textwidth}{ |p{3.5cm}|X| }
+\hline Outil \& framework & Description \\ \hline \hline
+
+\begin{center}
+\includegraphics[width=2cm]{Figures/junit.jpg} 
+\end{center}
+& 
+\begin{center}
+JUnit est un framework de tests unitaires pour langage de programmation Java. JUnit a jou\'e un r\^ole important dans le d\'eveloppement du d\'eveloppement pilot\'e par les tests et fait partie d'une famille de frameworks de tests unitaires collectivement.
+\end{center}
+\\ \hline
+
+\begin{center}
+\includegraphics[width=3cm]{Figures/mockito.png} 
+\end{center}
+& 
+\begin{center}
+Mockito peut \`etre utilis\'e avec JUnit. Mockito vous permet de cr\'eer et de configurer des objets fictifs. L'utilisation de Mockito simplifie consid\'erablement le d\'eveloppement de tests pour les classes avec des d\'ependances externes.
+\end{center}
+\\ \hline
+
+\begin{center}
+\includegraphics[width=2cm]{Figures/robolectric.png} 
+\end{center}
+& 
+\begin{center}
+Robolectric est une framework de test unitaire qui permet de tester les applications Android sur la machine virtuelle sans \'emulateur ni p\'eriph\'erique.
+\end{center}
+\\ \hline
+
+\begin{center}
+\includegraphics[width=2cm]{Figures/jest.png} 
+\end{center}
+& 
+\begin{center}
+Jest est une biblioth\`eque pour tester le code JavaScript. Il s'agit d'un projet open source g\'er\'e par Facebook et particuli\`erement adapt\'e aux tests de code JavaScript (React).
+\end{center}
+\\ \hline
+
+\begin{center}
+\includegraphics[width=2cm]{Figures/sonar.png} 
+\end{center}
+& 
+\begin{center}
+SonarQube est une plate-forme open-source d\'evelopp\'ee par SonarSource pour l'inspection continue de la qualit\'e du code afin d'effectuer des r\'evisions automatiques avec analyse statique du code afin de d\'etecter les bugs, les odeurs de code et les vuln\'erabilit\'es de s\'ecurit\'e.
+\end{center}
+\\ \hline
+
+
+\end{tabularx}
+\caption{Outils \& FrameWorks de test}
+\end{center}
+\end{table}
 
 \section{Conclusion}
 
