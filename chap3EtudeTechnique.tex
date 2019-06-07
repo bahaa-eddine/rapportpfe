@@ -1,22 +1,22 @@
 \chapter{Conception g\'enerale du projet}
 
 \section{Introduction}
-Ce chapitre est consacr\'e \`a la conception g\'en\'erale du projet. Apr\`es la d\'efinition des besoins fonctionnels et non fonctionnels, nous allons passer \`a la conception de l'architecture fonctionnelle qui repr\'esente une vue globale de la solution avec une prise en consid\'eration du besoin de la modularit\'e. 
+Ce chapitre est consacr\'e \`a la conception g\'en\'erale du projet. Apr\`es la d\'efinition des besoins fonctionnels et non fonctionnels, nous allons passer \`a expliquer l'architecture globale du syst\`eme qui repr\'esente une vue g\'en\'erale de notre solution.
 
 \section{Conception g\'en\'erale}
 
+
+Cette partie se base sur la conception globale de l'architecture fonctionnelle de notre projet. Effectivement, elle explique les composants de notre syst\`eme ainsi la communication entre eux.
+
 \subsection{Architecture globale du syst\`eme}
 
-Apr\`es la d\'efinition des besoins fonctionnels et non fonctionnels, nous avons pass\'e \`a la conception de l'architecture fonctionnelle qui repr\'esente une vue globale de la solution avec une prise en consid\'eration du besoin de la modularit\'e. Comme le montre la figure suivante :
+L'architecture de notre syst\`eme est compose par:
 
 \begin{figure}[h]
 	\center{\includegraphics[width=\textwidth]{Figures/architecture.PNG}}
 	\caption{\label{fig:my-label} Architecture du syst\`eme}
 \end{figure}
 
-Cette architecture est d\'efinie pour les prospecteurs et les exploitant qui vont utiliser notre application mobile.
-
-architecture du syst\`eme est compose par:
 \begin{itemize}
 \item \textbf{F5 VPN} : utilise le protocole Secure Sockets Layer, une technologie d'authentification et de cryptage int\'egr\'ee \`a chaque navigateur Web, pour cr\'eer une connexion s\'ecuris\'ee et crypt\'ee sur un r\'eseau moins s\'ecuris\'e, comme Internet.
 \item \textbf{MINIO} : vous permet d'utiliser un seul \gls{NAS} (comme \gls{NFS}, GlusterFS et d'autres syst\`emes de fichiers distribu\'es) en tant que syst\`eme de stockage pour plusieurs serveurs MinIO. La synchronisation entre les serveurs MinIO est prise en charge par la conception.
@@ -108,7 +108,7 @@ Dans notre projet, on est besoin de trois services externes qui sont d\'ej\`a r\
 \end{itemize}
 
 
-\section{\gls{ERD}}
+\section{Entity relationship diagram}
 Un certain nombre de techniques de mod\'elisation de donnd\'ees sont utilisd\'ees aujourd'hui. L'un des plus courants est le diagramme de relation d'entitd\'e (\gls{ERD}). Plusieurs notations \gls{ERD} sont disponibles. Nous avons utilis\'e la notation du Crow's Foot.
 
 La \textbf{cardinalit\'e} et la \textbf{modalit\'e} sont les indicateurs des r\`egles de gestion entourant une relation. La cardinalit\'e fait r\'ef\'erence au nombre maximum de fois qu'une instance d'une entit\'e peut \^etre associ\'ee \`a des instances de l'entit\'e associ\'ee. La modalit\'e fait r\'ef\'erence au nombre minimum de fois qu'une instance d'une entit\'e peut \^etre associ\'ee \`a une instance de l'entit\'e associ\'ee.

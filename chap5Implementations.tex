@@ -173,7 +173,7 @@ Lors d'authentificattion comme exploitant, l'utilisateur peut suivre les \'ecran
 
 \subsection{Tests de validation}
 
-Les tests nous permettent de v\'erifier les fonctionnalit\'es de notre syst\`eme et avoir une bonne qualit\'e de notre produit. On a utilis\'e quelques frameworks et outils pour tester notre application.
+Les tests nous permettent de v\'erifier les fonctionnalit\'es de notre syst\`eme et avoir une bonne qualit\'e de notre produit. On a utilis\'e quelques frameworks et biblioth\`eque pour tester notre application.
 
 \begin{table}[H]
 \begin{center}
@@ -216,24 +216,30 @@ Jest est une biblioth\`eque pour tester le code JavaScript. Il s'agit d'un proje
 \end{center}
 \\ \hline
 
-\begin{center}
-\includegraphics[width=2cm]{Figures/sonar.png} 
-\end{center}
-& 
-\begin{center}
-SonarQube est une plate-forme open-source d\'evelopp\'ee par SonarSource pour l'inspection continue de la qualit\'e du code afin d'effectuer des r\'evisions automatiques avec analyse statique du code afin de d\'etecter les bugs, les odeurs de code et les vuln\'erabilit\'es de s\'ecurit\'e.
-\end{center}
-\\ \hline
-
-
 \end{tabularx}
-\caption{Outils \& FrameWorks de test}
+\caption{Biblioth\`eques \& FrameWorks de test}
 \end{center}
 \end{table}
 
+Pour v\'erifier nos tests et mesurer la qualit\'e du code source de fa\c{c}on continue de notre projet. On a utilis\'e les outils suivantes :
+
+\begin{itemize}
+\item \textbf{SonarQube} : est une plate-forme open-source d\'evelopp\'ee par SonarSource pour l'inspection continue de la qualit\'e du code afin d'effectuer des r\'evisions automatiques avec analyse statique du code afin de d\'etecter les bugs, les odeurs de code et les vuln\'erabilit\'es de s\'ecurit\'e.
+\begin{figure}[H]
+	\center{\includegraphics[width=\textwidth]{Figures/sonar.PNG}}
+	\caption{\label{fig:my-label} SonarQube}
+\end{figure}
+\item \textbf{EFK Stack} : permet de cr\'eer une pile puissante pour collecter, stocker et visualiser les donn\'ees dans un emplacement centralis\'e. En effet, Fluentd, Elasticsearch et Kibana sont \'egalement connus sous le nom de EFK stack. Fluentd transf\`ere les journaux des instances individuelles du cluster vers un syst\`eme de journalisation centralis\'e, o\`u ils sont combin\'es pour g\'en\'erer des rapports de niveau sup\'erieur \`a l'aide d'ElasticSearch et de Kibana.
+\end{itemize}
+
+\begin{figure}[H]
+	\center{\includegraphics[width=0.6\textwidth]{Figures/efk.PNG}}
+	\caption{\label{fig:my-label} EFK Stack}
+\end{figure}
+
 \section{Conclusion}
 
-
+\`A la fin de ce chapitre, nous avons r\'eussi \`a expliquer l'architecture techniques de notre system, l'\'etat d'avancement de notre projet ainsi les outils et les biblioth\`eques pour tester notre code.
 
 
 
