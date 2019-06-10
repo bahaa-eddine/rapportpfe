@@ -107,7 +107,7 @@ Apr\`es l'authentification, le prospecteur passe \`a l'\'ecran d'accueil. Puis, 
 \item Prospecteur peut cliquer sur le button (D\'emarrer une tourn\'ee).
 \item la tablette envoie au serveur une requ\^ete pour g\'en\'erer un chantier vide et recevoir leur identifiant.
 \item Passant \`a l'autre \'ecran qui contient les d\'etails d'un chantier.
-\item Avant afficher l'\'ecran, la tablette demande au serveur toutes les informations sur les machines, zones, trench\'ees \& sorties d'une mine sp\'ecifique.
+\item Avant l'affichage de l'\'ecran, la tablette demande au serveur toutes les informations sur les machines, zones, trench\'ees \& sorties d'une mine sp\'ecifique.
 \item Apr\'es la r\'eception de ces informations, l'\'ecran sera afficher et le prospecteur peut remplir les champs de chantier d'une fa\c{c}on ordonn\'ee.
 \begin{figure}[H]
 	\center{\includegraphics[width=\textwidth]{Figures/chantier.PNG}}
@@ -137,21 +137,23 @@ Lors d'authentificattion comme prospecteur, l'utilisateur peut suivre les \'ecra
 	\caption{\label{fig:my-label} Prospecteur WorkFlow}
 \end{figure}
 
-\textbf{1} : Authentification
+\begin{enumerate}
+\item \textbf{Authentification} : Insertion du nom d'utilisateur \& mot de passe.
 
-\textbf{2} : Page d'accueil
+\item \textbf{Page d'accueil} : Pouvoir de choisir l'un des options propos\'es ou de d\'emarrer une nouvelle tourn\'ee. 
 
-\textbf{3} : Cr\'eation d'un chantier
+\item \textbf{Cr\'eation d'un chantier} : Remplissage les d\'etails d'un nouveau chantier.
 
-\textbf{4} : Checklist d'un chantier
+\item \textbf{Checklist d'un chantier} : V\'erification des r\'egl\'es d'un chantier par phase lors d'extraction des phosphates.
 
-\textbf{5} : Creation d'une anomalie \& Ajouter des attachements
+\item \textbf{Cr\'eation d'une anomalie \& Ajouter des attachements} : Cr\'eer une anomalie par leur criticit\'e \& ajouter des attachements (photo ,audio) pour plus clarifier le probl\`eme.
 
-\textbf{6} : liste des chantiers
+\item \textbf{liste des chantiers} : L'affichage d\'etailles de tous les chantiers par la tourn\'ee courante.
 
-\textbf{7} : Rapport d'une tour\'ee
+\item \textbf{Rapport d'une tour\'ee} : Avoir le rapport de la tourn\'ee apr\`es leur cl\^oturation.
 
-\textbf{8} : liste des anomalies
+\item \textbf{liste des anomalies} : L'affichage d\'etailles de toutes les anomalies.
+\end{enumerate}
 
 \subsubsection{Exploitant WorkFlow}
 
@@ -162,13 +164,37 @@ Lors d'authentificattion comme exploitant, l'utilisateur peut suivre les \'ecran
 	\caption{\label{fig:my-label} Exploitant WorkFlow}
 \end{figure}
 
-\textbf{1} : Authentification
+\begin{enumerate}
+\item \textbf{Authentification} : Insertion du nom d'utilisateur \& mot de passe.
 
-\textbf{2} : Page d'accueil
+\item \textbf{Page d'accueil} : Pouvoir de choisir l'un des options propos\'es.
 
-\textbf{3} : liste des anomalies cr\'eer par les prospecteurs
+\item \textbf{liste des anomalies cr\'eer par les prospecteurs} : L'affichage d\'etailles de toutes les anomalies ainsi par leur cr\'eateur (prospecteur).
 
-\textbf{4,5} : Creation d'une anomalie \& Ajouter des attachements
+\item \textbf{R\'epondre \`a une anomalie \& Ajouter des attachements} : Apr\`es l'examination d'une anomalie cite dans la liste, le prospecteur peut r\'epondre sur cette anomalie ainsi  ajouter des attachements (photo ,audio) pour plus clarifier leur intervention (solution ou bien clarification du probl\`eme).
+
+\end{enumerate}
+
+\subsection{D\'eploiement de projet}
+
+L'entite \gls{DF} utilise GitLab pour offrir un emplacement pour le stockage de code en ligne et le d\'eveloppement collaboratif de projets logiciels volumineux.
+
+Le processus de d\'eploiement que nous avons mis en place est le suivant :
+
+\begin{figure}[H]
+	\center{\includegraphics[width=\textwidth]{Figures/deploiement.PNG}}
+	\caption{\label{fig:my-label} Processus de d\'eploiement}
+\end{figure}
+
+\begin{enumerate}
+\item d\'ep\^ot du code source apr\`es la validation des sections "stages" (test ,build, deploy) qui sont ajouter dans un fichier YAML ".gitlabci.yml".
+\item cr\'eation automatique d'une image Docker et stockage dans un registre,
+\item cr\'eation ou modification d'un d\'eploiement d'application dans Kubernetes,
+\item d\'eploiement de l'application par Kubernetes qui cr\'ee les containers.
+\end{enumerate}
+
+
+
 
 
 \subsection{Tests de validation}
@@ -225,16 +251,57 @@ Pour v\'erifier nos tests et mesurer la qualit\'e du code source de fa\c{c}on co
 
 \begin{itemize}
 \item \textbf{SonarQube} : est une plate-forme open-source d\'evelopp\'ee par SonarSource pour l'inspection continue de la qualit\'e du code afin d'effectuer des r\'evisions automatiques avec analyse statique du code afin de d\'etecter les bugs, les odeurs de code et les vuln\'erabilit\'es de s\'ecurit\'e.
+
 \begin{figure}[H]
 	\center{\includegraphics[width=\textwidth]{Figures/sonar.PNG}}
 	\caption{\label{fig:my-label} SonarQube}
 \end{figure}
+
+La \gls{DF} a d\'ej\`a configurer sonarqube pour respecter les m\'etriques suivantes :
+
+\begin{table}[H]
+\begin{center}
+\begin{tabularx}{\textwidth}{ |p{5cm}|X|X|X|X| }
+\hline Metric & P\'eriode de fuite & Op\'erateur & Attention & Erreur \\ \hline \hline
+
+Bugs & No & is greater than	& & 0 \\\hline
+Code Smells	& No & is greater than & 50 & 100 \\\hline
+Coverage & No & is less than & 80.0\% & 30.0\% \\\hline
+Duplicated Lines on New Code (\%) & Always & is greater than		& & 3.0\% \\\hline
+Maintainability Rating on New Code & Always & is worse than & & A \\\hline
+Reliability Rating on New Code & Always & is worse than & & A \\\hline
+Security Rating on New Code & Always & is worse than & & A \\\hline
+
+\end{tabularx}
+\caption{Configuration SonarQube}
+\end{center}
+\end{table}
+
+
+\textcolor{red}{\textbf{Remarque}} : On donne la note (Rate) suivant les r\`egles suivantes :
+
+\begin{itemize}
+\item <=5\% la note est A
+\item entre 6 to 10\% la note est B
+\item entre 11 to 20\% la note est C
+\item entre 21 to 50\% la note est D
+\item >50\% la note est E
+\end{itemize}
+
 \item \textbf{EFK Stack} : permet de cr\'eer une pile puissante pour collecter, stocker et visualiser les donn\'ees dans un emplacement centralis\'e. En effet, Fluentd, Elasticsearch et Kibana sont \'egalement connus sous le nom de EFK stack. Fluentd transf\`ere les journaux des instances individuelles du cluster vers un syst\`eme de journalisation centralis\'e, o\`u ils sont combin\'es pour g\'en\'erer des rapports de niveau sup\'erieur \`a l'aide d'ElasticSearch et de Kibana.
 \end{itemize}
+
 
 \begin{figure}[H]
 	\center{\includegraphics[width=0.6\textwidth]{Figures/efk.PNG}}
 	\caption{\label{fig:my-label} EFK Stack}
+\end{figure}
+
+Au cours de la r\'ealisation de la partie frontoffice, on a cr\'ee plus que 170 test unitaire (est une proc\'edure permettant de v\'erifier le bon fonctionnement d'une partie pr\'ecise d'un logiciel ou d'une portion d'un programme) pour valider notre programme et respecter les m\'etriques de sonarqube.
+
+\begin{figure}[H]
+	\center{\includegraphics[width=\textwidth]{Figures/tests.PNG}}
+	\caption{\label{fig:my-label} Test unitaires de la partie frontoffice}
 \end{figure}
 
 \section{Conclusion}
