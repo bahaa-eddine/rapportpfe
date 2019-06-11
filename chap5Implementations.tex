@@ -40,7 +40,7 @@ Maintenant, on va expliquer l'utilit\'e des technologies utilises dans notre imp
 \subsection{Couche BackEnd}
 \begin{itemize}
 
-\item \textcolor{spring}{SpringBoot} : est un framework Java open source utilis\'e pour cr\'eer un Micro Service. Il est d\'evelopp\'e par l'\'equipe \textbf{pivotal}. Il est facile de cr\'eer des stand-alone applications. Spring Boot contient une prise en charge compl\`ete de l'infrastructure pour le d\'eveloppement d'un micro-service et vous permet de d\'evelopper des applications d'entreprise.
+\item \textcolor{spring}{SpringBoot} : est un framework Java open source utilis\'e pour cr\'eer un Micro Service. Il est facile de cr\'eer des stand-alone applications. Spring Boot contient une prise en charge compl\`ete de l'infrastructure pour le d\'eveloppement d'un micro-service et vous permet de d\'evelopper des applications d'entreprise.
 
 \item \textbf{Spring Security} : est un Framework de s\'ecurit\'e l\'eger qui fournit une authentification et un support d'autorisation afin de s\'ecuriser les applications Spring. Il est livr\'e avec des impl\'ementations d'algorithmes de s\'ecurit\'e populaires.
 
@@ -175,28 +175,6 @@ Lors d'authentificattion comme exploitant, l'utilisateur peut suivre les \'ecran
 
 \end{enumerate}
 
-\subsection{D\'eploiement de projet}
-
-L'entite \gls{DF} utilise GitLab pour offrir un emplacement pour le stockage de code en ligne et le d\'eveloppement collaboratif de projets logiciels volumineux.
-
-Le processus de d\'eploiement que nous avons mis en place est le suivant :
-
-\begin{figure}[H]
-	\center{\includegraphics[width=\textwidth]{Figures/deploiement.PNG}}
-	\caption{\label{fig:my-label} Processus de d\'eploiement}
-\end{figure}
-
-\begin{enumerate}
-\item d\'ep\^ot du code source apr\`es la validation des sections "stages" (test ,build, deploy) qui sont ajouter dans un fichier YAML ".gitlabci.yml".
-\item cr\'eation automatique d'une image Docker et stockage dans un registre,
-\item cr\'eation ou modification d'un d\'eploiement d'application dans Kubernetes,
-\item d\'eploiement de l'application par Kubernetes qui cr\'ee les containers.
-\end{enumerate}
-
-
-
-
-
 \subsection{Tests de validation}
 
 Les tests nous permettent de v\'erifier les fonctionnalit\'es de notre syst\`eme et avoir une bonne qualit\'e de notre produit. On a utilis\'e quelques frameworks et biblioth\`eque pour tester notre application.
@@ -204,28 +182,28 @@ Les tests nous permettent de v\'erifier les fonctionnalit\'es de notre syst\`eme
 \begin{table}[H]
 \begin{center}
 \begin{tabularx}{\textwidth}{ |p{3.5cm}|X| }
-\hline Outil \& framework & Description \\ \hline \hline
+\hline Biblio \& framework & Description \\ \hline \hline
 
 \begin{center}
 \includegraphics[width=2cm]{Figures/junit.jpg} 
 \end{center}
 & 
 \begin{center}
-JUnit est un framework de tests unitaires pour langage de programmation Java. JUnit a jou\'e un r\^ole important dans le d\'eveloppement du d\'eveloppement pilot\'e par les tests et fait partie d'une famille de frameworks de tests unitaires collectivement.
+JUnit est un framework de tests unitaires pour langage de programmation Java.
 \end{center}
 \\ \hline
 
 \begin{center}
-\includegraphics[width=3cm]{Figures/mockito.png} 
+\includegraphics[width=2cm]{Figures/mockito.png} 
 \end{center}
 & 
 \begin{center}
-Mockito peut \`etre utilis\'e avec JUnit. Mockito vous permet de cr\'eer et de configurer des objets fictifs. L'utilisation de Mockito simplifie consid\'erablement le d\'eveloppement de tests pour les classes avec des d\'ependances externes.
+Mockito peut \`etre utilis\'e avec JUnit. Mockito vous permet de cr\'eer et de configurer des objets fictifs.
 \end{center}
 \\ \hline
 
 \begin{center}
-\includegraphics[width=2cm]{Figures/robolectric.png} 
+\includegraphics[width=1.5cm]{Figures/robolectric.png} 
 \end{center}
 & 
 \begin{center}
@@ -234,11 +212,11 @@ Robolectric est une framework de test unitaire qui permet de tester les applicat
 \\ \hline
 
 \begin{center}
-\includegraphics[width=2cm]{Figures/jest.png} 
+\includegraphics[width=1cm]{Figures/jest.png} 
 \end{center}
 & 
 \begin{center}
-Jest est une biblioth\`eque pour tester le code JavaScript. Il s'agit d'un projet open source g\'er\'e par Facebook et particuli\`erement adapt\'e aux tests de code JavaScript (React).
+Jest est une biblioth\`eque pour tester le code JavaScript. Il s'agit d'un projet open source g\'er\'e par Facebook et particuli\`erement adapt\'e aux tests de code JavaScript.
 \end{center}
 \\ \hline
 
@@ -246,6 +224,13 @@ Jest est une biblioth\`eque pour tester le code JavaScript. Il s'agit d'un proje
 \caption{Biblioth\`eques \& FrameWorks de test}
 \end{center}
 \end{table}
+
+Au cours de la r\'ealisation de la partie frontoffice, on a cr\'ee plus que 170 test unitaire (est une proc\'edure permettant de v\'erifier le bon fonctionnement d'une partie pr\'ecise d'un logiciel ou d'une portion d'un programme) pour valider notre programme et respecter les m\'etriques de test.
+
+\begin{figure}[H]
+	\center{\includegraphics[width=\textwidth]{Figures/tests.PNG}}
+	\caption{\label{fig:my-label} Test unitaires de la partie frontoffice}
+\end{figure}
 
 Pour v\'erifier nos tests et mesurer la qualit\'e du code source de fa\c{c}on continue de notre projet. On a utilis\'e les outils suivantes :
 
@@ -297,12 +282,26 @@ Security Rating on New Code & Always & is worse than & & A \\\hline
 	\caption{\label{fig:my-label} EFK Stack}
 \end{figure}
 
-Au cours de la r\'ealisation de la partie frontoffice, on a cr\'ee plus que 170 test unitaire (est une proc\'edure permettant de v\'erifier le bon fonctionnement d'une partie pr\'ecise d'un logiciel ou d'une portion d'un programme) pour valider notre programme et respecter les m\'etriques de sonarqube.
+
+\subsection{D\'eploiement de projet}
+
+L'entite \gls{DF} utilise GitLab pour offrir un emplacement pour le stockage de code en ligne et le d\'eveloppement collaboratif de projets logiciels volumineux.
+
+Le processus de d\'eploiement que nous avons mis en place est le suivant :
 
 \begin{figure}[H]
-	\center{\includegraphics[width=\textwidth]{Figures/tests.PNG}}
-	\caption{\label{fig:my-label} Test unitaires de la partie frontoffice}
+	\center{\includegraphics[width=0.7\textwidth]{Figures/deploiement.PNG}}
+	\caption{\label{fig:my-label} Processus de d\'eploiement}
 \end{figure}
+
+\begin{enumerate}
+\item d\'ep\^ot du code source apr\`es la validation des tests \& le lancement normale de l'application dans gitlab. 
+\item cr\'eation automatique d'une image Docker et stockage dans un registre,
+\item cr\'eation ou modification d'un d\'eploiement d'application dans Kubernetes,
+\item d\'eploiement de l'application par Kubernetes qui cr\'ee les containers.
+\end{enumerate}
+
+Ce proc\'edure est configure dans un fichier YAML ".gitlabci.yml".
 
 \section{Conclusion}
 
