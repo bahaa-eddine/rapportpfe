@@ -42,7 +42,7 @@ Dans notre projet, elle se d\'ecompose par deux parties :
 
 
 \subsubsection{Cas g\'en\'eral pour le backend}
-Pour les services Backend le choix de l'architecture applicative suit une d\'ecomposition en trois couches :
+Pour les services Backend le choix de l'architecture applicative suit une d\'ecomposition en trois couches (3-tiers) :
 \begin{itemize}
 \item Couche DAO : c'est la couche d'accd\`es aux donn\'ees persistant dans la SGBD.
 \item Couche Services : impl\'emente la logique m\'etier du service, et les diff\'erentes rd\`egles de gestion qui repr\'esentent les fonctionnalit\'es du service.
@@ -51,9 +51,32 @@ Pour les services Backend le choix de l'architecture applicative suit une d\'eco
 
 \begin{figure}[H]
 	\center{\includegraphics[width=\textwidth]{Figures/backend.PNG}}
-	\caption{\label{fig:my-label} Architecture Applicative backend}
+	\caption{\label{fig:my-label} Architecture 3-tiers}
 \end{figure}
 
+On a aussi impl\'emente l'architecture \gls{MVC} qui signifie  Mod\`ele, Vue et Contr\^oleur. MVC s\'epare les applications en trois composants : 
+
+\begin{itemize}
+\item \textbf{Mod\`ele} : Repr\'esentations de mod\`ele sous forme de donn\'ees et de logique applicative. Il contient les donn\'ees de l'application. Les objets de mod\`ele r\'ecup\`erent et stockent l'\'etat du mod\`ele dans une base de donn\'ees.
+
+\item \textbf{View} : View est une interface utilisateur. Visualisez les donn\'ees d'affichage en utilisant le mod\`ele pour l'utilisateur et leur permettre \'egalement de modifier les donn\'ees.
+
+\item \textbf{Contr\^oleur} : le contr\^oleur g\`ere la demande de l'utilisateur. En r\`egle g\'en\'erale, l'utilisateur interagit avec View, ce qui d\'eclenche à son tour la demande d'URL appropri\'ee. Cette demande sera g\'er\'ee par un contr\^oleur. Le contr\^oleur rend le appropri\'e
+afficher avec les donn\'ees du mod\`ele en r\'eponse.
+\end{itemize}
+
+\begin{figure}[H]
+	\center{\includegraphics[width=\textwidth]{Figures/mvc.PNG}}
+	\caption{\label{fig:my-label} Architecture MVC}
+\end{figure}
+
+On obtient comme architecture final pour le cot\'e backend la figure suivante :
+
+
+\begin{figure}[H]
+	\center{\includegraphics[width=\textwidth]{Figures/back.PNG}}
+	\caption{\label{fig:my-label} Architecture applicative backend}
+\end{figure}
 
 \subsubsection{Cas g\'en\'eral pour le backoffice}
 

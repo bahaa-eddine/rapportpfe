@@ -108,6 +108,17 @@ Cette figure repr\'esente le diagramme de cas d'utilisation globale de l'acteur 
   \end{itemize}
 \end{itemize}
 
+Les exceptions pour un prospecteur lors de l'utilisation de l'application prospektor sont :
+
+\begin{itemize}
+\item Email ou mot de passe sont incorrecte.
+\item Cr\'eer une anomalie sans pr\'eciser leur localisation.
+\item Cr\'eer une anomalie sans description.
+\item G\'en\'erer le rapport sans terminer toutes les chantiers.
+\item ...
+\end{itemize}
+
+
 \textbf{Exploitant :} Les grandes \'etapes pour un exploitant lors de l'utilisation de l'application prospektor.
 \begin{itemize}
   \item Ouvrir l'application mobile prospektor
@@ -117,6 +128,14 @@ Cette figure repr\'esente le diagramme de cas d'utilisation globale de l'acteur 
     \item Consulter les anomalies \`a traiter
     \item Consulter l'historique des anomalies
   \end{itemize}
+\end{itemize}
+
+Les exceptions pour un exploitant lors de l'utilisation de l'application prospektor sont :
+\begin{itemize}
+\item Email ou mot de passe sont incorrecte.
+\item Repondre \`a une anomalie sans description.
+\item Repondre \`a une anomalie d\'ej\`a cl\^oturer.
+\item ...
 \end{itemize}
 
 \textbf{Administrateur :} Les grandes \'etapes pour un administrateur lors de l'utilisation de l'application prospektor.
@@ -149,24 +168,7 @@ Cette figure repr\'esente le diagramme de cas d'utilisation globale de l'acteur 
   \end{itemize}
 \end{itemize}
 
-\subsection{Exceptions des cas d'utilisation}
-
-\textbf{Prospecteur :} Les exceptions pour un prospecteur lors de l'utilisation de l'application prospektor:
-\begin{itemize}
-\item Email ou mot de passe sont incorrecte.
-\item Cr\'eer une anomalie sans pr\'eciser leur localisation.
-\item Cr\'eer une anomalie sans description.
-\item G\'en\'erer le rapport sans terminer toutes les chantiers.
-\item ...
-\end{itemize}
-\textbf{Exploitant :} Les exceptions pour un exploitant lors de l'utilisation de l'application prospektor:
-\begin{itemize}
-\item Email ou mot de passe sont incorrecte.
-\item Repondre \`a une anomalie sans description.
-\item Repondre \`a une anomalie d\'ej\`a cl\^oturer.
-\item ...
-\end{itemize}
-\textbf{Administrateur :} Les exceptions pour un administrateur lors de l'utilisation de l'application prospektor:
+Les exceptions pour un administrateur lors de l'utilisation de l'application prospektor sont :
 \begin{itemize}
 \item Email ou mot de passe sont incorrecte
 \item Ajouter un utilisateur qui n'existe pas dans le group ocp
@@ -190,12 +192,16 @@ Cette version permet d'offrir une consultation compl\`ete pour le d\'eveloppemen
 	\center{\includegraphics[width=\textwidth]{Figures/mvp.PNG}}
 	\caption{\label{fig:my-label} RoadMap de la version \gls{MVP}}
 \end{figure}
+
+Cette version nous permet de g\'erer les anomalies lors d'une exploitation, notifier les exploitants, stocker les attachements ainsi avoir un rapport sur chaque tourn\'ee.
 \subsection{Post Minimum Viable Product}
 Cette version est celle qui suive la premi\`ere version.
 \begin{figure}[H]
 	\center{\includegraphics[width=\textwidth]{Figures/version1.PNG}}
 	\caption{\label{fig:my-label} RoadMap de la version Post \gls{MVP}}
 \end{figure}
+
+Cette version nous permet d'utiliser notre application dans les mines d'\gls{OCP}, Stocker les donn\'ees localement, synchroniser l'application et exporter les rapports des tourn\'ees pour les utiliser dans autres projets. 
 
  
 \section{Conclusion}
