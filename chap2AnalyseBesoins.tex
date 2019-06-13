@@ -15,14 +15,18 @@ Au cours de cette \'etape, nous allons extraire les diff\'erentes fonctionnalit\
 \begin{itemize}
 \item L'application \textcolor{red}{prospektor} doit permettre \`a chaque prospecteur de :
 \begin{itemize}
+\item Cr\'eer des anomalies lors de leur exploitation.
+\item Ajouter des attachements aux anomalies qui a cr\'ee.
 \item suivre et consulter les anomalies qui a cr\'eer.
 \item consulter la liste des attachements li\'ees par anomalies.
+\item Notifier les exploitants au cas d'un d\'erangement fatal.
 \end{itemize}
 \item L'application \textcolor{red}{prospektor} doit permettre \`a chaque exploitant de :
 \begin{itemize}
 \item suivre et consulter les anomalies par \'etape, date \& criticit\'e.
 \item consulter les attachements li\'ees par anomalies.
 \item Ajouter des attachements aux anomalies qui ne sont pas encore r\'esolu.
+\item Faire des interventions au cas d'une perturbation.
 \end{itemize}  
 \item L'application \textcolor{red}{prospektor} doit permettre \`a chaque administrateur de :
 \begin{itemize}
@@ -38,7 +42,6 @@ Au cours de cette \'etape, nous allons extraire les diff\'erentes fonctionnalit\
 \item Tourn\'ees
 \item Chantiers
 \item Erreurs
-\item ...
 \end{itemize}
 
 \end{itemize} 
@@ -48,22 +51,22 @@ Au cours de cette \'etape, nous allons extraire les diff\'erentes fonctionnalit\
 \subsection{Les besoins non fonctionnels}
 Outre les fonctions cit\'ees ci-dessus, l'application doit assurer en certaine mesure les caract\'eristiques suivantes :
 \begin{itemize}
-\item L'efficacit\'e : L'efficacit\'e de l'application doit permettre l'accomplissement de la t\^ache avec le minimum de manipulation. Ceci doit \^etre garanti pour que l'application puisse s'int\'egrer facilement dans l'environnement ou elle va \^etre d\'eploy\'ee.
+\item \textbf{L'efficacit\'e} : L'efficacit\'e de l'application doit permettre l'accomplissement de la t\^ache avec le minimum de manipulation. Ceci doit \^etre garanti pour que l'application puisse s'int\'egrer facilement dans l'environnement ou elle va \^etre d\'eploy\'ee.
 
-\item La s\'ecurit\'e : Les diff\'erents comptes utilis\'es par les utilisateurs doivent \^etre s\'ecuris\'es et v\'erifi\'es pour \'eviter les faux comptes et les fausses informations.
+\item \textbf{La s\'ecurit\'e} : Les diff\'erents comptes utilis\'es par les utilisateurs doivent \^etre s\'ecuris\'es et v\'erifi\'es pour \'eviter les faux comptes et les fausses informations.
 
-\item La fiabilit\'e : Touche \`a l'aspect qualit\'e des donn\'ees et persistance des informations dans l'application ainsi que la vitesse de chargement des interfaces.
+\item \textbf{La fiabilit\'e} : Touche \`a l'aspect qualit\'e des donn\'ees et persistance des informations dans l'application ainsi que la vitesse de chargement des interfaces.
 \item La performance : le temps de r\'eponse de la plateforme doit \^etre rapide.
 
-\item La maintenabilit\'e : La solution doit \^etre stable face aux changements, ainsi qu'un fort niveau de testabilit\'e assur\'e par les tests fonctionnels.
+\item \textbf{La maintenabilit\'e} : La solution doit \^etre stable face aux changements, ainsi qu'un fort niveau de testabilit\'e assur\'e par les tests fonctionnels.
 
-\item La scalabilit\'e : la solution doit d'\^etre extensible en termes de la charge des requ\^etes trait\'ees.
+\item \textbf{La scalabilit\'e} : la solution doit d'\^etre extensible en termes de la charge des requ\^etes trait\'ees.
 
-\item L'\'evolutivit\'e : possibilit\'e d'ajout des nouvelles fonctionnalit\'es au cours du temps selon le besoin des fournisseurs.
+\item \textbf{L'\'evolutivit\'e} : possibilit\'e d'ajout des nouvelles fonctionnalit\'es au cours du temps selon le besoin des fournisseurs.
 
-\item Le d\'eploiement intelligent: l'introduction des nouveaux changements ne doit pas impacter les modules existants, d'o\`u le besoin d'une d\'emarche de d\'eploiement intelligente de chaque module.
+\item \textbf{Le d\'eploiement intelligen} t: l'introduction des nouveaux changements ne doit pas impacter les modules existants, d'o\`u le besoin d'une d\'emarche de d\'eploiement intelligente de chaque module.
 
-\item La portabilit\'e: facilit\'e de passage d'un environnement de d\'eveloppement et tests vers un environnement de pr\'e-production ou un environnement de production.
+\item \textbf{La portabilit\'e} : facilit\'e de passage d'un environnement de d\'eveloppement et tests vers un environnement de pr\'e-production ou un environnement de production.
 \end{itemize} 
 
 

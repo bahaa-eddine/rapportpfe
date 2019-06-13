@@ -2,7 +2,7 @@
 
 \section{Introduction}
 
-Ce chapitre aborde comme sujet les choix technologiques et les outils pour l'impl\'ementation de notre solution ainsi que les captures d'\'ecran des diff\'erents fen\^etre r\'ealiser et les tests de validation effectu\'es sur les modules d\'evelopp\'es.
+Ce chapitre aborde comme sujet les choix technologiques et les outils pour l'impl\'ementation de notre solution ainsi que les captures d'\'ecran des diff\'erents fen\^etres r\'ealiser et les tests de validation effectu\'es sur les modules d\'evelopp\'es.
 
 \section{Environnement logiciel}
 L'environnement logiciel utilis\'e pour la r\'ealisation du Prospektor sont :
@@ -67,26 +67,26 @@ Pourquoi Spring Boot est un excellent choix pour Prospektor :
 
 \item Prend en charge Oracle, PostgreSQL, MySQL, MongoDB, Redis, Solr, ElasticSearch, Rabbit MQ, ActiveMQ et bien d'autres encore.
 
-\item Avec Spring Boot, nous pouvons d\'evelopper des applications Web rendues typiques c\^ot\'e serveur, RESTful et d'autres API Web, ou m\^eme cr\'eer des travaux par lots et des applications de ligne de commande standard.
+\item Avec Spring Boot, nous pouvons d\'evelopper des applications Web rendues typiques c\^ot\'e serveur, RESTful et d'autres \gls{API} Web, ou m\^eme cr\'eer des travaux par lots et des applications de ligne de commande standard.
 
 \item Les d\'eveloppeurs adorent programmer avec Spring Boot. Ils sont plus productifs, b\'en\'eficient des avantages de l'\'ecosyst\`eme Spring et de la tranquillit\'e d'esprit des syst\`emes de production en fonctionnement.
 \end{itemize}
 
 
-\item \textbf{Swagger} : nous permet de d\'ecrire la structure de nos API afin que les machines puissent les lire. La capacit\'e des API \`a d\'ecrire leur propre structure facilite aux d\'eveloppeurs frontend la communication avec nos serveurs.
+\item \textbf{Swagger} : nous permet de d\'ecrire la structure de nos \gls{API} afin que les machines puissent les lire. La capacit\'e des \gls{API} \`a d\'ecrire leur propre structure facilite aux d\'eveloppeurs frontend la communication avec nos serveurs.
 
 \begin{figure}[H]
 	\center{\includegraphics[width=\textwidth]{Figures/swagger.PNG}}
-	\caption{\label{fig:my-label} Documentation de API Prospektor}
+	\caption{\label{fig:my-label} Documentation de \gls{API} Prospektor}
 \end{figure}
 
 \end{itemize}
 
-Pour s\'ecurise notre serveur, on a utilis\'e la normalisation JWT.
+Pour s\'ecurise notre serveur, on a utilis\'e la normalisation \gls{JWT}.
 
-\gls{JWT} : est une normalisation permettant d'utiliser des jetons pour s'authentifier sur le Web en g\'en\'eral. Il est robuste et peut contenir beaucoup d'informations. Comme tout autre jeton, JWT peut \^etre utilis\'e pour transmettre l'identit\'e d'utilisateurs authentifi\'es entre un fournisseur d'identit\'e et un fournisseur de services. Il peut \'egalement contenir toutes les revendications de l'utilisateur, telles que les donn\'ees d'autorisation. Le fournisseur de services n'a donc pas besoin d'entrer dans la base de donn\'ees ou dans des syst\`emes externes pour v\'erifier les r\^oles et autorisations des utilisateurs pour chaque demande. Ces donn\'ees sont extraites du jeton.
+\gls{JWT} : est une normalisation permettant d'utiliser des jetons pour s'authentifier sur le Web en g\'en\'eral. Il est robuste et peut contenir beaucoup d'informations. Comme tout autre jeton, \gls{JWT} peut \^etre utilis\'e pour transmettre l'identit\'e d'utilisateurs authentifi\'es entre un fournisseur d'identit\'e et un fournisseur de services. Il peut \'egalement contenir toutes les revendications de l'utilisateur, telles que les donn\'ees d'autorisation. Le fournisseur de services n'a donc pas besoin d'entrer dans la base de donn\'ees ou dans des syst\`emes externes pour v\'erifier les r\^oles et autorisations des utilisateurs pour chaque demande. Ces donn\'ees sont extraites du jeton.
 
-Choisir JWT pour s\'ecuriser nos points de terminaison d'API est un excellent choix car il garantit un \'echange sans \'etat de jetons entre le client et le serveur, est compact et s\'ecuris\'e pour les URL. Avec JWT, il est inutile de stocker les jetons d'acc\`es dans une base de donn\'ees (bien que vous puissiez toujours le faire et m\^eme en avoir besoin en fonction du cas d'utilisation) ou de nous soucier des sessions bloqu\'ees, cela rend la construction de redondance dans notre application d'entreprise plus rentable au moins aussi rentable. 
+Choisir \gls{JWT} pour s\'ecuriser nos points de terminaison d'\gls{API} est un excellent choix car il garantit un \'echange sans \'etat de jetons entre le client et le serveur, est compact et s\'ecuris\'e pour les \gls{URL}. Avec \gls{JWT}, il est inutile de stocker les jetons d'acc\`es dans une base de donn\'ees (bien que vous puissiez toujours le faire et m\^eme en avoir besoin en fonction du cas d'utilisation) ou de nous soucier des sessions bloqu\'ees, cela rend la construction de redondance dans notre application d'entreprise plus rentable au moins aussi rentable. 
 
 \begin{figure}[H]
 	\center{\includegraphics[width=\textwidth]{Figures/apiback.PNG}}
@@ -179,7 +179,7 @@ Quand on parle de conteneurisation, on le compare tr\`es souvent aux machines vi
 	\caption{\label{fig:my-label} Containers Vs Machines virtuelles}
 \end{figure}
 
-La plate-forme de conteneur Docker est toujours ex\'ecut\'ee sur le syst\`eme d'exploitation h\^ote. Les conteneurs contiennent les fichiers binaires, les biblioth\`eques et l'application elle-même. Les conteneurs ne contiennent pas de syst\`eme d'exploitation invit\'e garantissant leur l\'eg\`eret\'e.
+La plate-forme de conteneur Docker est toujours ex\'ecut\'ee sur le syst\`eme d'exploitation h\^ote. Les conteneurs contiennent les fichiers binaires, les biblioth\`eques et l'application elle-m\^eme. Les conteneurs ne contiennent pas de syst\`eme d'exploitation invit\'e garantissant leur l\'eg\`eret\'e.
 
 En revanche, les machines virtuelles s'ex\'ecutent sur un hyperviseur (responsable de l'ex\'ecution des machines virtuelles) et incluent leur propre syst\`eme d'exploitation invit\'e. Cela augmente consid\'erablement la taille des machines virtuelles, rend la configuration de machines virtuelles plus complexe et n\'ecessite plus de ressources pour ex\'ecuter chaque machine virtuelle.
 
@@ -343,7 +343,7 @@ Jest est une biblioth\`eque pour tester le code JavaScript. Il s'agit d'un proje
 \end{center}
 \end{table}
 
-Au cours de la r\'ealisation de la partie frontoffice, on a cr\'ee plus que 170 test unitaire pour le partie \gls{MVP}(test unitaire est une proc\'edure permettant de v\'erifier le bon fonctionnement d'une partie pr\'ecise d'un logiciel ou d'une portion d'un programme) pour valider notre programme et respecter les m\'etriques de test.
+Au cours de la r\'ealisation de la partie frontoffice, on a cr\'ee plus que 170 test unitaire pour le partie \gls{MVP} (test unitaire est une proc\'edure permettant de v\'erifier le bon fonctionnement d'une partie pr\'ecise d'un logiciel ou d'une portion d'un programme) pour valider notre programme et respecter les m\'etriques de test.
 
 \begin{figure}[H]
 	\center{\includegraphics[width=\textwidth]{Figures/tests.PNG}}

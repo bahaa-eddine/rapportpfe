@@ -22,7 +22,7 @@ L'architecture de notre syst\`eme est compose par:
 \item \textbf{MINIO} : vous permet d'utiliser un seul \gls{NAS} (comme \gls{NFS}, GlusterFS et d'autres syst\`emes de fichiers distribu\'es) en tant que syst\`eme de stockage pour plusieurs serveurs MinIO. La synchronisation entre les serveurs MinIO est prise en charge par la conception.
 \item \gls{AD} est un syst\`eme bas\'e sur une base de donn\'ees qui fournit une authentification, un annuaire, une strat\'egie et d'autres services dans un environnement Windows.
 \item \gls{LDAP} est un protocole d'application permettant d'interroger et de modifier des \'el\'ements dans des fournisseurs de services d'annuaire tels qu'Active Directory, qui prend en charge une forme LDAP.
-\item \gls{NFS}, litt\'eralement système de fichiers en r\'eseau, est \`a l'origine un protocole qui permet \`a un ordinateur d'acc\'eder via un r\'eseau \`a des fichiers distants.
+\item \gls{NFS}, litt\'eralement syst\`eme de fichiers en r\'eseau, est \`a l'origine un protocole qui permet \`a un ordinateur d'acc\'eder via un r\'eseau \`a des fichiers distants.
 \end{itemize}
 
 \subsection{Architecture applicative} 
@@ -61,7 +61,7 @@ On a aussi impl\'emente l'architecture \gls{MVC} qui signifie  Mod\`ele, Vue et 
 
 \item \textbf{View} : View est une interface utilisateur. Visualisez les donn\'ees d'affichage en utilisant le mod\`ele pour l'utilisateur et leur permettre \'egalement de modifier les donn\'ees.
 
-\item \textbf{Contr\^oleur} : le contr\^oleur g\`ere la demande de l'utilisateur. En r\`egle g\'en\'erale, l'utilisateur interagit avec View, ce qui d\'eclenche à son tour la demande d'URL appropri\'ee. Cette demande sera g\'er\'ee par un contr\^oleur. Le contr\^oleur rend le appropri\'e
+\item \textbf{Contr\^oleur} : le contr\^oleur g\`ere la demande de l'utilisateur. En r\`egle g\'en\'erale, l'utilisateur interagit avec View, ce qui d\'eclenche \`a son tour la demande d'URL appropri\'ee. Cette demande sera g\'er\'ee par un contr\^oleur. Le contr\^oleur rend le appropri\'e
 afficher avec les donn\'ees du mod\`ele en r\'eponse.
 \end{itemize}
 
