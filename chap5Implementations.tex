@@ -5,18 +5,19 @@
 Ce chapitre aborde comme sujet les choix technologiques et les outils pour l'impl\'ementation de notre solution ainsi que les captures d'\'ecran des diff\'erents fen\^etre r\'ealiser et les tests de validation effectu\'es sur les modules d\'evelopp\'es.
 
 \section{Environnement logiciel}
-L'environnement logiciel utilis\'e pour la r\'ealisation de notre projet est pr\'esent\'e dans le tableau suivant :
+L'environnement logiciel utilis\'e pour la r\'ealisation du Prospektor sont :
 
 \begin{table}[H]
 \begin{center}
 \begin{tabularx}{\textwidth}{ |l|X| }
 \hline Outil & Description \\\hline \hline
 JDK 1.8 & Java Development Kit (JDK) d\'esigne un ensemble de biblioth\`eques logicielles de base du langage de programmation Java.\\ \hline
+NodeJS 10.16.0 LTS & est un moteur d'ex\'ecution JavaScript bas\'e sur le moteur JavaScript V8 de Chrome.\\ \hline
 Intellij IDEA & Environnement de d\'eveloppement int\'egr\'e (IDE).\\ \hline
 Visual Studio Code & Environnement de d\'eveloppement c\^ote frontend.\\ \hline
 Android Studio & Environnement de d\'eveloppement pour d\'evelopper des applications mobiles Android.\\ \hline
 GitBash & C'est une ligne de commande dans laquelle on peut ex\'ecuter les commandes git.\\ \hline
-Zeplin & C'est un outil de design des fonctionnalit\'es. Permet de collaborer entre les designers et les d\'eveloppeurs frontends, facile, efficace et permet de gagner du temps.\\ \hline
+Zeplin & C'est un outil de design des fonctionnalit\'es. Permet de collaborer entre les designers et les d\'eveloppeurs frontends.\\ \hline
 Postman & Est actuellement l'un des outils les plus populaires utilis\'es dans les tests d'\gls{API}.\\
 \hline
 \end{tabularx}
@@ -52,21 +53,21 @@ Pourquoi Spring Boot est un excellent choix pour Prospektor :
 \begin{itemize}
 \item Spring Boot est bas\'e sur le framework Spring.
 
-\item Les modules centraux et centraux des \'ecosyst\`emes Spring sont stables pendant une longue p\'eriode et la plupart des modifications sont compatibles avec les versions ant\'erieures.
+\item Les modules centraux de Spring sont stables pendant une longue p\'eriode et la plupart des modifications sont compatibles avec les versions ant\'erieures.
 
-Bas\'e sur la machine virtuelle Java
+\item Bas\'e sur la machine virtuelle Java (JVM).
 
 \item Spring Boot et les principaux modules Spring de l'\'ecosyst\`eme sont des logiciels open source. Cependant, il est fortement entretenu et soutenu par Pivotal, une soci\'et\'e proposant des plates-formes et des outils permettant de cr\'eer de meilleurs logiciels.
 
 \item Son utilisation est gratuite.
 
-\item Ex\'ecutez-le sur votre propre serveur, machines virtuelles, conteneurs ou h\^ote sur Heroku, AWS ou similaire. C'est \`a toi de decider.
+\item Ex\'ecutez-le sur notre propre serveur, machines virtuelles, conteneurs ou h\^ote sur Heroku, AWS ou similaire. C'est \`a nous de decider.
 
-\item Avec Spring, vous pouvez facilement connecter votre application \`a des bases de donn\'ees relationnelles, \`a des bases de donn\'ees NoSQL ou \`a des services de file d'attente.
+\item Avec Spring, nous pouvons facilement connecter notre application \`a des bases de donn\'ees relationnelles, \`a des bases de donn\'ees NoSQL ou \`a des services de file d'attente.
 
 \item Prend en charge Oracle, PostgreSQL, MySQL, MongoDB, Redis, Solr, ElasticSearch, Rabbit MQ, ActiveMQ et bien d'autres encore.
 
-\item Avec Spring Boot, vous pouvez d\'evelopper des applications Web rendues typiques c\^ot\'e serveur, RESTful et d'autres API Web, ou m\^eme cr\'eer des travaux par lots et des applications de ligne de commande standard.
+\item Avec Spring Boot, nous pouvons d\'evelopper des applications Web rendues typiques c\^ot\'e serveur, RESTful et d'autres API Web, ou m\^eme cr\'eer des travaux par lots et des applications de ligne de commande standard.
 
 \item Les d\'eveloppeurs adorent programmer avec Spring Boot. Ils sont plus productifs, b\'en\'eficient des avantages de l'\'ecosyst\`eme Spring et de la tranquillit\'e d'esprit des syst\`emes de production en fonctionnement.
 \end{itemize}
@@ -79,9 +80,11 @@ Bas\'e sur la machine virtuelle Java
 	\caption{\label{fig:my-label} Documentation de API Prospektor}
 \end{figure}
 
-\item \gls{JWT} : est une normalisation permettant d'utiliser des jetons pour s'authentifier sur le Web en g\'en\'eral. Il est robuste et peut contenir beaucoup d'informations. Comme tout autre jeton, JWT peut \^etre utilis\'e pour transmettre l'identit\'e d'utilisateurs authentifi\'es entre un fournisseur d'identit\'e et un fournisseur de services. Il peut \'egalement contenir toutes les revendications de l'utilisateur, telles que les donn\'ees d'autorisation. Le fournisseur de services n'a donc pas besoin d'entrer dans la base de donn\'ees ou dans des syst\`emes externes pour v\'erifier les r\^oles et autorisations des utilisateurs pour chaque demande. Ces donn\'ees sont extraites du jeton.
-
 \end{itemize}
+
+Pour s\'ecurise notre serveur, on a utilis\'e la normalisation JWT.
+
+\gls{JWT} : est une normalisation permettant d'utiliser des jetons pour s'authentifier sur le Web en g\'en\'eral. Il est robuste et peut contenir beaucoup d'informations. Comme tout autre jeton, JWT peut \^etre utilis\'e pour transmettre l'identit\'e d'utilisateurs authentifi\'es entre un fournisseur d'identit\'e et un fournisseur de services. Il peut \'egalement contenir toutes les revendications de l'utilisateur, telles que les donn\'ees d'autorisation. Le fournisseur de services n'a donc pas besoin d'entrer dans la base de donn\'ees ou dans des syst\`emes externes pour v\'erifier les r\^oles et autorisations des utilisateurs pour chaque demande. Ces donn\'ees sont extraites du jeton.
 
 Choisir JWT pour s\'ecuriser nos points de terminaison d'API est un excellent choix car il garantit un \'echange sans \'etat de jetons entre le client et le serveur, est compact et s\'ecuris\'e pour les URL. Avec JWT, il est inutile de stocker les jetons d'acc\`es dans une base de donn\'ees (bien que vous puissiez toujours le faire et m\^eme en avoir besoin en fonction du cas d'utilisation) ou de nous soucier des sessions bloqu\'ees, cela rend la construction de redondance dans notre application d'entreprise plus rentable au moins aussi rentable. 
 
@@ -90,7 +93,7 @@ Choisir JWT pour s\'ecuriser nos points de terminaison d'API est un excellent ch
 	\caption{\label{fig:my-label} Authentification avec JWT}
 \end{figure}
 
-On a pris Postman comme outil pour test notre \gls{API} et v\'erifier le bon fonctionnement du partie backend.
+On a pris Postman comme outil pour test notre \gls{API} et v\'erifier le bon fonctionnement de la partie backend.
 
 \begin{figure}[H]
 	\center{\includegraphics[width=\textwidth]{Figures/postman.PNG}}
@@ -132,11 +135,11 @@ Pourquoi int\'egrer ReactJS dans Prospektor ?
 \begin{enumerate}
 \item Le contenu est r\'ef\'eren\c{c}able
 
-Gr\^ace \`a l'utilisation d'un serveur Node, le code va pouvoir \^etre g\'en\'er\'e c\^ot\'e client ET c\^ot\'e serveur \`a la diff\'erence des autres frameworks JS traditionnels (Backbone.js, AngularJS, Ember.js, etc.) qui de mani\`ere native ex\'ecutent le code seulement c\^ot\'e client. Jusqu'\`a pr\'esent il \'etait obligatoire de faire passer un bot (service gratuit ou payant) pour qu'il cr\'ee des fichiers HTML r\'ef\'eren\c{c}ables.
+Gr\^ace \`a l'utilisation d'un serveur Node, le code va pouvoir \^etre g\'en\'er\'e c\^ot\'e client ET c\^ot\'e serveur \`a la diff\'erence des autres frameworks JS traditionnels (Backbone.js, AngularJS, Ember.js, etc.) qui de mani\`ere native ex\'ecutent le code seulement c\^ot\'e client.
 
 \item ReactJS est tr\`es rapide
 
-ReactJS cr\'ee son propre DOM virtuel o\`u sont rattach\'es vos composants. Cette approche nous donne \'enorm\'ement de flexibilit\'e et des performances exceptionnelles, car ReactJS calcule quel changement dans le DOM a besoin d'\^etre fait, et change juste LA PARTIE qui a besoin d'\^etre mise \`a jour. De cette fa\c{c}on, ReactJS \'evite des op\'erations co\^uteuses dans le DOM.
+ReactJS cr\'ee son propre DOM virtuel o\`u sont rattach\'es nos composants. Cette approche nous donne \'enorm\'ement de flexibilit\'e et des performances exceptionnelles, car ReactJS calcule quel changement dans le DOM a besoin d'\^etre fait, et change juste LA PARTIE qui a besoin d'\^etre mise \`a jour. De cette fa\c{c}on, ReactJS \'evite des op\'erations co\^uteuses dans le DOM.
 
 \item Les composants sont le futur du d\'eveloppement web
 
@@ -148,7 +151,7 @@ ReactJS produit du code ( propre ) (simple \`a lire), sa lecture permet de d\'et
 
 \item Le Javascript plus simple \`a \'ecrire
 
-ReactJS utilise une syntaxe sp\'eciale appel\'e JSX, qui permet de mixer l'HTML et le Javascript. Ce n'est pas obligatoire, nous pouvons toujours \'ecrire notre app ReactJS en Javascript natif, mais nous sugg\'erons tr\`es fortement d'essayer cette nouvelle syntaxe car elle nous permet d'\'ecrire nos composants tr\`es facilement. \^etre capable de mettre une touche de HTML dans nos fonctions de rendu sans avoir \`a concat\'ener nos chaines, c'est fantastique ! Et apr\`es quelque temps cela devient tr\`es naturel.
+ReactJS utilise une syntaxe sp\'eciale appel\'e JSX, qui permet de mixer l'HTML et le Javascript. Ce n'est pas obligatoire, nous pouvons toujours \'ecrire notre app ReactJS en Javascript natif, mais nous sugg\'erons tr\`es fortement d'essayer cette nouvelle syntaxe car elle nous permet d'\'ecrire nos composants tr\`es facilement. \^etre capable de mettre une touche de HTML dans nos fonctions de rendu sans avoir \`a concat\'ener nos chaines et apr\`es quelque temps cela devient tr\`es naturel.
 
 \end{enumerate}
 
@@ -157,6 +160,11 @@ ReactJS utilise une syntaxe sp\'eciale appel\'e JSX, qui permet de mixer l'HTML 
 \begin{itemize}
 \item \textbf{MySQL} : est un syst\`eme de gestion de base de donn\'ees relationnelle open source bas\'e sur le langage \gls{SQL}. Leur utilit\'e est faire stocker les donn\'ees textuel de notre application.
 \item \textbf{MINIO} : est un serveur de stockage d'objets haute performance compatible avec les API Amazon S3. Pour faire stocker les attachements de l'application ( images \& audios ).
+
+\begin{figure}[H]
+	\center{\includegraphics[width=\textwidth]{Figures/minio.PNG}}
+	\caption{\label{fig:my-label} Prospektor avec MinIo}
+\end{figure}
 \end{itemize}
 
 \subsection{Outils de DevOps}
@@ -164,7 +172,35 @@ ReactJS utilise une syntaxe sp\'eciale appel\'e JSX, qui permet de mixer l'HTML 
 \begin{itemize}
 \item \textbf{Docker} : est un outil con\c{c}u pour faciliter la cr\'eation, le d\'eploiement et l'ex\'ecution d'applications \`a l'aide de conteneurs. Les conteneurs permettent \`a un d\'eveloppeur de conditionner une application avec toutes les pi\`eces dont il a besoin, telles que des biblioth\`eques et autres d\'ependances, et de l'exp\'edier dans un package unique.
 
+Quand on parle de conteneurisation, on le compare tr\`es souvent aux machines virtuelles. Jetons un coup d'\oe{}il à l'image suivante pour voir la diff\'erence principale :
+
+\begin{figure}[H]
+	\center{\includegraphics[width=\textwidth]{Figures/container.PNG}}
+	\caption{\label{fig:my-label} Containers Vs Machines virtuelles}
+\end{figure}
+
+La plate-forme de conteneur Docker est toujours ex\'ecut\'ee sur le syst\`eme d'exploitation h\^ote. Les conteneurs contiennent les fichiers binaires, les biblioth\`eques et l'application elle-même. Les conteneurs ne contiennent pas de syst\`eme d'exploitation invit\'e garantissant leur l\'eg\`eret\'e.
+
+En revanche, les machines virtuelles s'ex\'ecutent sur un hyperviseur (responsable de l'ex\'ecution des machines virtuelles) et incluent leur propre syst\`eme d'exploitation invit\'e. Cela augmente consid\'erablement la taille des machines virtuelles, rend la configuration de machines virtuelles plus complexe et n\'ecessite plus de ressources pour ex\'ecuter chaque machine virtuelle.
+
+
 \item \textbf{Kubernetes} : est un syst\`eme d'orchestration de conteneur open-source permettant d'automatiser le d\'eploiement, la mise \`a l'\'echelle et la gestion des applications.
+
+\begin{figure}[H]
+	\center{\includegraphics[width=\textwidth]{Figures/k8s.PNG}}
+	\caption{\label{fig:my-label} Kubernetes}
+\end{figure}
+
+Dans notre figure, nous avons un utilisateur qui se connecte \`a un \'equilibreur (load balancer). L'\'equilibreur de charge redirige la demande vers un n\oe{}ud situ\'e \`a l'int\'erieur du cluster kubernetes. Le n\oe{}ud traite ensuite la demande et renvoie une r\'eponse.
+
+Travailler avec Kubernetes (K8) comprend cinq \'etapes principales:
+\begin{enumerate}
+\item D\'evelopper une application.
+\item Containerize notre application.
+\item Cr\'eez un cluster Kubernetes.
+\item D\'eployez notre conteneur sur le cluster.
+\item Exposer et redimensionner le cluster.
+\end{enumerate}
 
 \end{itemize}
 
@@ -176,7 +212,7 @@ Nous avons r\'eparti le travail en plusieurs it\'erations (Sprints). Le sprint e
 
 \subsubsection{Description g\'en\'erale du sprint}
 
-Au cours de ce sprint nous sommes focalis\'es sur la cr\'eation d'un chantier. Dans un premier temps, on va afficher une \'ecran qui permet au utilisateur de remplir les \'el\'ements n\'ecessaire pour cr\'eer un chantier. Cette sprint se base sur la partie frontOffice (concernant l'utilisateur de l'application mobile).
+Au cours de ce sprint nous sommes focalis\'es sur la cr\'eation d'un chantier. Dans un premier temps, on va afficher une \'ecran qui permet au utilisateur de remplir les \'el\'ements n\'ecessaire pour cr\'eer un chantier. Cette sprint se base sur la partie frontOffice (concernant l'utilisateur de l'application mobile pr\'ecis\'ement le prospecteur).
 
 \subsubsection{Description d\'etaille du sprint}
 
@@ -186,7 +222,7 @@ Apr\`es l'authentification, le prospecteur passe \`a l'\'ecran d'accueil. Puis, 
 	\caption{\label{fig:my-label} Ecran d'acceuil}
 \end{figure}
 \begin{itemize}
-\item Prospecteur peut cliquer sur le button (D\'emarrer une tourn\'ee).
+\item Apr\`es le prospecteur clique sur le button (D\'emarrer une tourn\'ee).
 \item la tablette envoie au serveur une requ\^ete pour g\'en\'erer un chantier vide et recevoir leur identifiant.
 \item Passant \`a l'autre \'ecran qui contient les d\'etails d'un chantier.
 \item Avant l'affichage de l'\'ecran, la tablette demande au serveur toutes les informations sur les machines, zones, trench\'ees \& sorties d'une mine sp\'ecifique.
@@ -195,7 +231,7 @@ Apr\`es l'authentification, le prospecteur passe \`a l'\'ecran d'accueil. Puis, 
 	\center{\includegraphics[width=\textwidth]{Figures/chantier.PNG}}
 	\caption{\label{fig:my-label} \'Ecran de chantier}
 \end{figure}
-\item Enfin, une button pour la  confirmation.
+\item Enfin, une button pour la  confirmation du chantier.
 \item une requ\^ete sera envoy\'e au serveur qui contient tout les informations sur ce chantier.
 \end{itemize} 
 
@@ -224,7 +260,7 @@ Lors d'authentificattion comme prospecteur, l'utilisateur peut suivre les \'ecra
 
 \item \textbf{Page d'accueil} : Pouvoir de choisir l'un des options propos\'es ou de d\'emarrer une nouvelle tourn\'ee. 
 
-\item \textbf{Cr\'eation d'un chantier} : Remplissage les d\'etails d'un nouveau chantier.
+\item \textbf{Cr\'eation d'un chantier} : Remplir les d\'etails d'un nouveau chantier.
 
 \item \textbf{Checklist d'un chantier} : V\'erification des r\'egl\'es d'un chantier par phase lors d'extraction des phosphates.
 
@@ -307,7 +343,7 @@ Jest est une biblioth\`eque pour tester le code JavaScript. Il s'agit d'un proje
 \end{center}
 \end{table}
 
-Au cours de la r\'ealisation de la partie frontoffice, on a cr\'ee plus que 170 test unitaire (est une proc\'edure permettant de v\'erifier le bon fonctionnement d'une partie pr\'ecise d'un logiciel ou d'une portion d'un programme) pour valider notre programme et respecter les m\'etriques de test.
+Au cours de la r\'ealisation de la partie frontoffice, on a cr\'ee plus que 170 test unitaire pour le partie \gls{MVP}(test unitaire est une proc\'edure permettant de v\'erifier le bon fonctionnement d'une partie pr\'ecise d'un logiciel ou d'une portion d'un programme) pour valider notre programme et respecter les m\'etriques de test.
 
 \begin{figure}[H]
 	\center{\includegraphics[width=\textwidth]{Figures/tests.PNG}}
@@ -360,7 +396,7 @@ Security Rating on New Code & Always & is worse than & & A \\\hline
 
 
 \begin{figure}[H]
-	\center{\includegraphics[width=0.6\textwidth]{Figures/efk.PNG}}
+	\center{\includegraphics[width=0.8\textwidth]{Figures/efk.PNG}}
 	\caption{\label{fig:my-label} EFK Stack}
 \end{figure}
 
