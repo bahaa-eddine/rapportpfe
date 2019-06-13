@@ -28,7 +28,9 @@ Postman & Est actuellement l'un des outils les plus populaires utilis\'es dans l
 
 Notre syst\`eme se base en totalit\'e sur l'architecture orient\'e service et plus pr\'ecis\'ement sur l'architecture \gls{REST}. C'est un style d'architecture pour la conception d'applications faiblement coupl\'ees sur \gls{HTTP}, souvent utilis\'e dans le d\'eveloppement de services Web.
 
-Une \'etude qui a \'et\'e faite par l'entit\'e \gls{DF}, ils sont convaincu d'adapter quelques technologies \& outils dans tous les projets. La figure suivante repr\'esente les technologies \& les biblioth\`eques essentiels utilises dans notre projet.
+Une \'etude qui a faite par l'entit\'e \gls{DF}, ils sont convaincu d'adapter quelques technologies \& outils dans tous leur projets. 
+
+La figure suivante repr\'esente les technologies \& les biblioth\`eques essentiels utilises dans notre projet (Prospektor).
 
 \begin{figure}[H]
 	\center{\includegraphics[width=\textwidth]{Figures/achitec-tech.PNG}}
@@ -38,17 +40,62 @@ Une \'etude qui a \'et\'e faite par l'entit\'e \gls{DF}, ils sont convaincu d'ad
 Maintenant, on va expliquer l'utilit\'e des technologies utilises dans notre impl\'ementation. 
 
 \subsection{Couche BackEnd}
+
+Pour la partie backend, on va utiliser les technologies suivantes :
+
 \begin{itemize}
 
 \item \textcolor{spring}{SpringBoot} : est un framework Java open source utilis\'e pour cr\'eer un Micro Service. Il est facile de cr\'eer des stand-alone applications. Spring Boot contient une prise en charge compl\`ete de l'infrastructure pour le d\'eveloppement d'un micro-service et vous permet de d\'evelopper des applications d'entreprise.
 
-\item \textbf{Spring Security} : est un Framework de s\'ecurit\'e l\'eger qui fournit une authentification et un support d'autorisation afin de s\'ecuriser les applications Spring. Il est livr\'e avec des impl\'ementations d'algorithmes de s\'ecurit\'e populaires.
+Pourquoi Spring Boot est un excellent choix pour Prospektor :
+
+\begin{itemize}
+\item Spring Boot est bas\'e sur le framework Spring.
+
+\item Les modules centraux et centraux des \'ecosyst\`emes Spring sont stables pendant une longue p\'eriode et la plupart des modifications sont compatibles avec les versions ant\'erieures.
+
+Bas\'e sur la machine virtuelle Java
+
+\item Spring Boot et les principaux modules Spring de l'\'ecosyst\`eme sont des logiciels open source. Cependant, il est fortement entretenu et soutenu par Pivotal, une soci\'et\'e proposant des plates-formes et des outils permettant de cr\'eer de meilleurs logiciels.
+
+\item Son utilisation est gratuite.
+
+\item Ex\'ecutez-le sur votre propre serveur, machines virtuelles, conteneurs ou h\^ote sur Heroku, AWS ou similaire. C'est \`a toi de decider.
+
+\item Avec Spring, vous pouvez facilement connecter votre application \`a des bases de donn\'ees relationnelles, \`a des bases de donn\'ees NoSQL ou \`a des services de file d'attente.
+
+\item Prend en charge Oracle, PostgreSQL, MySQL, MongoDB, Redis, Solr, ElasticSearch, Rabbit MQ, ActiveMQ et bien d'autres encore.
+
+\item Avec Spring Boot, vous pouvez d\'evelopper des applications Web rendues typiques c\^ot\'e serveur, RESTful et d'autres API Web, ou m\^eme cr\'eer des travaux par lots et des applications de ligne de commande standard.
+
+\item Les d\'eveloppeurs adorent programmer avec Spring Boot. Ils sont plus productifs, b\'en\'eficient des avantages de l'\'ecosyst\`eme Spring et de la tranquillit\'e d'esprit des syst\`emes de production en fonctionnement.
+\end{itemize}
+
 
 \item \textbf{Swagger} : nous permet de d\'ecrire la structure de nos API afin que les machines puissent les lire. La capacit\'e des API \`a d\'ecrire leur propre structure facilite aux d\'eveloppeurs frontend la communication avec nos serveurs.
+
+\begin{figure}[H]
+	\center{\includegraphics[width=\textwidth]{Figures/swagger.PNG}}
+	\caption{\label{fig:my-label} Documentation de API Prospektor}
+\end{figure}
 
 \item \gls{JWT} : est une normalisation permettant d'utiliser des jetons pour s'authentifier sur le Web en g\'en\'eral. Il est robuste et peut contenir beaucoup d'informations. Comme tout autre jeton, JWT peut \^etre utilis\'e pour transmettre l'identit\'e d'utilisateurs authentifi\'es entre un fournisseur d'identit\'e et un fournisseur de services. Il peut \'egalement contenir toutes les revendications de l'utilisateur, telles que les donn\'ees d'autorisation. Le fournisseur de services n'a donc pas besoin d'entrer dans la base de donn\'ees ou dans des syst\`emes externes pour v\'erifier les r\^oles et autorisations des utilisateurs pour chaque demande. Ces donn\'ees sont extraites du jeton.
 
 \end{itemize}
+
+Choisir JWT pour s\'ecuriser nos points de terminaison d'API est un excellent choix car il garantit un \'echange sans \'etat de jetons entre le client et le serveur, est compact et s\'ecuris\'e pour les URL. Avec JWT, il est inutile de stocker les jetons d'acc\`es dans une base de donn\'ees (bien que vous puissiez toujours le faire et m\^eme en avoir besoin en fonction du cas d'utilisation) ou de nous soucier des sessions bloqu\'ees, cela rend la construction de redondance dans notre application d'entreprise plus rentable au moins aussi rentable. 
+
+\begin{figure}[H]
+	\center{\includegraphics[width=\textwidth]{Figures/apiback.PNG}}
+	\caption{\label{fig:my-label} Authentification avec JWT}
+\end{figure}
+
+On a pris Postman comme outil pour test notre \gls{API} et v\'erifier le bon fonctionnement du partie backend.
+
+\begin{figure}[H]
+	\center{\includegraphics[width=\textwidth]{Figures/postman.PNG}}
+	\caption{\label{fig:my-label} Prospektor avec Postman}
+\end{figure}
 
 \subsection{Couche FrontEnd}
 
@@ -60,6 +107,15 @@ Cette couche d\'ecompose \`a deux parties :
 
 Pour la partie frontOffice, on a une application mobile d\'evelopp\'e par android native, utilisant le langage JAVA pour une tablette sp\'ecifique utiliser dans les chantiers du groupe \gls{OCP}. 
 
+pourquoi android native ? 
+
+\begin{itemize}
+\item Meilleure rapidit\'e, fiabilit\'e et dot\'ee d'une meilleure r\'eactivit\'e ainsi qu'une r\'esolution sup\'erieure ce qui assure une meilleure exp\'erience utilisateur.
+\item Elle permet un acc\`es plus facile \`a toutes les fonctionnalit\'es du t\'el\'ephone, de l'acc\'el\'erom\`etre en passant par la cam\'era et m\^eme le micro.
+\item Les notifications push, uniquement disponibles sur les apps native. Ces notifications nous permettent d'alerter nos utilisateurs et d'attirer leur attention chaque fois que nous le souhaitons, que ce soit pour du nouveau contenu ou une offre promotionnelle.
+\item Ne requiert pas forc\'ement internet pour fonctionner, ce qui est un r\'eel avantage. Dans notre cas, il existe des zones tr\`es peu couvertes par le r\'eseau internet, et permettre \`a nos utilisateurs d'acc\'eder \`a l'app sans connexion web est un tr\`es gros point fort \`a ne pas n\'egliger.
+\end{itemize}
+
 \subsubsection{Couche BackOffice}
 \begin{itemize}
 
@@ -68,8 +124,34 @@ Pour la partie frontOffice, on a une application mobile d\'evelopp\'e par androi
 \item \textcolor{redux}{Redux} : Biblioth\`eque compl\'ementaire \`a React qui permet de conserver facilement les donn\'ees (State) et les \'ev\'enements (Actions) .Redux isole l'objet d'\'etat des composants.
 
 \item \textbf{Redux-saga} : est une biblioth\`eque de middleware redux con\c{c}ue pour simplifier la gestion des effets secondaires de votre application redux. Pour ce faire, il exploite une fonctionnalit\'e de l'ES6 appel\'ee Generators, qui nous permet d'\'ecrire un code asynchrone qui a l'air synchrone et qui est tr\`es facile \`a tester.
-
 \end{itemize}
+
+
+Pourquoi int\'egrer ReactJS dans Prospektor ?
+
+\begin{enumerate}
+\item Le contenu est r\'ef\'eren\c{c}able
+
+Gr\^ace \`a l'utilisation d'un serveur Node, le code va pouvoir \^etre g\'en\'er\'e c\^ot\'e client ET c\^ot\'e serveur \`a la diff\'erence des autres frameworks JS traditionnels (Backbone.js, AngularJS, Ember.js, etc.) qui de mani\`ere native ex\'ecutent le code seulement c\^ot\'e client. Jusqu'\`a pr\'esent il \'etait obligatoire de faire passer un bot (service gratuit ou payant) pour qu'il cr\'ee des fichiers HTML r\'ef\'eren\c{c}ables.
+
+\item ReactJS est tr\`es rapide
+
+ReactJS cr\'ee son propre DOM virtuel o\`u sont rattach\'es vos composants. Cette approche nous donne \'enorm\'ement de flexibilit\'e et des performances exceptionnelles, car ReactJS calcule quel changement dans le DOM a besoin d'\^etre fait, et change juste LA PARTIE qui a besoin d'\^etre mise \`a jour. De cette fa\c{c}on, ReactJS \'evite des op\'erations co\^uteuses dans le DOM.
+
+\item Les composants sont le futur du d\'eveloppement web
+
+ReactJS \`a pris le concept de Shadow DOM et du framework PolymerJS et l'a pouss\'e \`a un niveau sup\'erieur. React.js n'utilise pas Shadow DOM \`a la place il nous donne l'habilit\'e de cr\'eer nos propre composant que nous pourrons r\'eutiliser plus tard, combiner, et/ou inclure dans le c\oe{}ur de notre contenu. Cette fonctionnalit\'e \`a elle seule est un gage de productivit\'e de par la facilit\'e \`a d\'efinir et manipuler nos propres composants.
+
+\item L'intelligibilit\'e
+
+ReactJS produit du code ( propre ) (simple \`a lire), sa lecture permet de d\'eterminer imm\'ediatement quelles sont les fonctionnalit\'es de notre application. Ce qui est essentiel pour la maintenance et l'expansion de notre projet dans le temps.
+
+\item Le Javascript plus simple \`a \'ecrire
+
+ReactJS utilise une syntaxe sp\'eciale appel\'e JSX, qui permet de mixer l'HTML et le Javascript. Ce n'est pas obligatoire, nous pouvons toujours \'ecrire notre app ReactJS en Javascript natif, mais nous sugg\'erons tr\`es fortement d'essayer cette nouvelle syntaxe car elle nous permet d'\'ecrire nos composants tr\`es facilement. \^etre capable de mettre une touche de HTML dans nos fonctions de rendu sans avoir \`a concat\'ener nos chaines, c'est fantastique ! Et apr\`es quelque temps cela devient tr\`es naturel.
+
+\end{enumerate}
+
 
 \subsection{Couche Base de donn\'ees}
 \begin{itemize}
@@ -287,6 +369,11 @@ Security Rating on New Code & Always & is worse than & & A \\\hline
 
 L'entite \gls{DF} utilise GitLab pour offrir un emplacement pour le stockage de code en ligne et le d\'eveloppement collaboratif de projets logiciels volumineux.
 
+\begin{figure}[H]
+	\center{\includegraphics[width=\textwidth]{Figures/gitlab.PNG}}
+	\caption{\label{fig:my-label} GitLab}
+\end{figure}
+
 Le processus de d\'eploiement que nous avons mis en place est le suivant :
 
 \begin{figure}[H]
@@ -300,6 +387,11 @@ Le processus de d\'eploiement que nous avons mis en place est le suivant :
 \item cr\'eation ou modification d'un d\'eploiement d'application dans Kubernetes,
 \item d\'eploiement de l'application par Kubernetes qui cr\'ee les containers.
 \end{enumerate}
+
+\begin{figure}[H]
+	\center{\includegraphics[width=\textwidth]{Figures/pipeline.PNG}}
+	\caption{\label{fig:my-label} Pipeline de Prospektor}
+\end{figure}
 
 Ce proc\'edure est configure dans un fichier YAML ".gitlabci.yml".
 
