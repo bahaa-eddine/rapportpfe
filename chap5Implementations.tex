@@ -119,6 +119,17 @@ pourquoi android native ?
 \item Ne requiert pas forc\'ement internet pour fonctionner, ce qui est un r\'eel avantage. Dans notre cas, il existe des zones tr\`es peu couvertes par le r\'eseau internet, et permettre \`a nos utilisateurs d'acc\'eder \`a l'app sans connexion web est un tr\`es gros point fort \`a ne pas n\'egliger.
 \end{itemize}
 
+Pour faire notifier les utilisateur de notre application en temps r\'eel, On va utiliser les services de firebase.
+
+L'envoi de notifications aux utilisateurs est un processus essentiel et, dans de nombreux cas, essentiel pour toute application. Et pendant longtemps, nous avons eu la chance de faire livrer les notifications par des services tels que FCM et APN.
+
+Le probl\`eme, c'est qu'il fallait un serveur. Vous deviez h\'eberger du code sur une plate-forme en nuage qui lui permettrait de toujours fonctionner, un code qui \'ecoute et d\'etermine quoi envoyer, \`a quels utilisateurs, puis fait la demande pour envoyer la notification r\'eelle \`a votre utilisateur.
+
+\begin{figure}[H]
+	\center{\includegraphics[width=\textwidth]{Figures/firebase.PNG}}
+	\caption{\label{fig:my-label} Service notification firebase}
+\end{figure}
+
 \subsubsection{Couche BackOffice}
 \begin{itemize}
 
@@ -203,6 +214,9 @@ Travailler avec Kubernetes (K8) comprend cinq \'etapes principales:
 \end{enumerate}
 
 \end{itemize}
+
+
+
 
 \section{Impl\'ementation \& tests}
 

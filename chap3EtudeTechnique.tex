@@ -126,8 +126,8 @@ Il surveille la fa\c{c}on dont ils sont, et ils ne peuvent pas le g\'erer.
 Dans notre projet, on est besoin de trois services externes qui sont d\'ej\`a r\'ealiser par l'entit\'e \gls{DF}. La communication avec ces services se base sur les requ\^etes \gls{HTTP} \& leurs utilit\'es sont:
 \begin{itemize}
 \item \textbf{Service d'authentification} : permet de v\'erifier l'identit\'e d'un utilisateur, est ce qu'il est appartient au groupe \gls{OCP}.
-\item \textbf{Service Minio} : permet de stocker les attachements des anomalies. On va utiliser le protocole \gls{NFS} lors du stockage.
-\item \textbf{Service Notification} : permet d'envoyer des messages \gls{SMS}.
+\item \textbf{Service Minio} : permet de stocker les fichiers de grandes tailles, dans notre cas, on veut stocker les attachements des anomalies. On va utiliser le protocole \gls{NFS} comme protocole lors du stockage pour accéder \`a notre réseau \`a nos fichiers distants.
+\item \textbf{Service Notification} : permet d'envoyer des e-mails et des messages \gls{SMS}.
 \end{itemize}
 
 
